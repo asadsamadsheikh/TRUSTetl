@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustETL | Upload Dataset</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="about.html">About</a></div></nav>
+
+    <main class="container narrow">
+        <section class="page-hero"><p class="eyebrow">STEP 01</p><h1>Upload Dataset</h1><p>Choose a CSV, Excel, or JSON file to begin the TrustETL pipeline.</p></section>
+
+        <section class="card upload-card">
+            <div id="dropZone" class="drop-zone">
+                <div class="upload-icon">↑</div>
+                <h2>Drag & drop your dataset</h2>
+                <p>or choose a file from your computer</p>
+                <label class="button primary" for="fileInput">Choose File</label>
+                <input id="fileInput" type="file" accept=".csv,.xlsx,.xls,.json" hidden>
+                <p class="file-help">CSV, XLSX, XLS, JSON · Maximum 50 MB</p>
+            </div>
+
+            <div id="fileDetails" class="selected-file hidden">
+                <div><strong id="fileName">No file selected</strong><small id="fileSize"></small></div>
+                <button id="removeFile" class="button secondary">Remove</button>
+            </div>
+
+            <div class="button-row">
+                <a href="dashboard.html" class="button secondary">Cancel</a>
+                <a id="continueButton" href="profiling.html" class="button primary disabled">Continue to Profiling →</a>
+            </div>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>

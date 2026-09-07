@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustETL | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="brand" href="index.html">Trust<span>ETL</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="about.html">About</a>
+            <a href="upload.html" class="nav-button">Start Pipeline</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <p class="sidebar-label">WORKSPACE</p>
+            <a class="sidebar-link active" href="dashboard.html">Dashboard</a>
+            <a class="sidebar-link" href="datasets.html">Datasets</a>
+            <a class="sidebar-link" href="profiling.html">Profiling</a>
+            <a class="sidebar-link" href="pipeline.html">Pipeline</a>
+            <p class="sidebar-label">AGENTS</p>
+            <a class="sidebar-link" href="coder.html">Coder Agent</a>
+            <a class="sidebar-link" href="critic.html">Critic Agent</a>
+            <a class="sidebar-link" href="validator.html">Validator</a>
+            <p class="sidebar-label">OUTPUT</p>
+            <a class="sidebar-link" href="lineage.html">Lineage</a>
+            <a class="sidebar-link" href="report.html">Reports</a>
+        </aside>
+
+        <main class="dashboard-content">
+            <div class="page-title">
+                <div>
+                    <p class="eyebrow">WORKSPACE</p>
+                    <h1>Dashboard</h1>
+                </div>
+                <a href="upload.html" class="button primary">+ New Dataset</a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card"><strong>01</strong><span>Active dataset</span></div>
+                <div class="stat-card"><strong>06</strong><span>Pipeline stages</span></div>
+                <div class="stat-card"><strong>92%</strong><span>Confidence</span></div>
+                <div class="stat-card"><strong>PASS</strong><span>Current status</span></div>
+            </div>
+
+            <div class="two-column">
+                <section class="card">
+                    <div class="card-header"><span>Current Dataset</span><span class="badge success">READY</span></div>
+                    <h2>customer_data.csv</h2>
+                    <p class="muted">12,842 rows · 18 columns · 2.4 MB</p>
+                    <div class="progress"><div class="progress-bar" style="width: 92%"></div></div>
+                    <p class="muted">Validation confidence: 92%</p>
+                    <a href="profiling.html" class="text-link">View profiling →</a>
+                </section>
+
+                <section class="card">
+                    <div class="card-header"><span>Pipeline Status</span><span class="badge success">PASS</span></div>
+                    <div class="mini-status"><span class="status-check">✓</span><div><strong>Profiling</strong><small>Completed</small></div></div>
+                    <div class="mini-status"><span class="status-check">✓</span><div><strong>Coder Agent</strong><small>Completed</small></div></div>
+                    <div class="mini-status"><span class="status-check">✓</span><div><strong>Critic Agent</strong><small>Reviewed and approved</small></div></div>
+                    <div class="mini-status"><span class="status-check">✓</span><div><strong>Validator</strong><small>Independent checks passed</small></div></div>
+                </section>
+            </div>
+
+            <section class="card">
+                <div class="card-header"><span>Recent Activity</span><a href="report.html" class="text-link">View report →</a></div>
+                <div class="activity-row"><span>✓</span><div><strong>Validation completed</strong><small>Confidence score reached 92%</small></div><time>Just now</time></div>
+                <div class="activity-row"><span>✓</span><div><strong>Critic review passed</strong><small>No unresolved high-severity issues</small></div><time>1 min ago</time></div>
+                <div class="activity-row"><span>✓</span><div><strong>Transformation generated</strong><small>Coder Agent created ETL logic</small></div><time>2 min ago</time></div>
+            </section>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

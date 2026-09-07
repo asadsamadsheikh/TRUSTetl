@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustETL | About</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="brand" href="index.html">Trust<span>ETL</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html" class="active">About</a>
+            <a href="upload.html" class="nav-button">Start Pipeline</a>
+        </div>
+    </nav>
+
+    <main class="container narrow">
+        <section class="page-hero">
+            <p class="eyebrow">ABOUT THE PROJECT</p>
+            <h1>Why TrustETL?</h1>
+            <p>TrustETL explores a multi-agent approach to more trustworthy automated ETL.</p>
+        </section>
+
+        <section class="section">
+            <div class="card">
+                <h2>The research idea</h2>
+                <p>
+                    A Coder Agent proposes a transformation. Instead of trusting that
+                    first answer, an independent Critic Agent actively searches for
+                    weaknesses. Failed checks trigger revision, and a Validator Agent
+                    performs a final independent verification.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading"><p class="eyebrow">ARCHITECTURE</p><h2>Three agents, separate responsibilities.</h2></div>
+            <div class="feature-grid">
+                <article class="card feature-card"><div class="icon">C</div><h3>Coder Agent</h3><p>Generates the proposed cleaning and transformation workflow.</p></article>
+                <article class="card feature-card"><div class="icon">X</div><h3>Critic Agent</h3><p>Attempts to expose logical, statistical, and data-quality problems.</p></article>
+                <article class="card feature-card"><div class="icon">V</div><h3>Validator Agent</h3><p>Checks whether the final output satisfies the required validation rules.</p></article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card">
+                <h2>Core research gap</h2>
+                <p>
+                    Existing approaches can automate data cleaning or use self-feedback,
+                    but TrustETL focuses on adversarial critique between separate agent
+                    roles followed by independent validation.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">TrustETL — AI/ML Project Prototype</footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Profiling</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
+<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link active" href="profiling.html">Profiling</a><a class="sidebar-link" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
+<main class="dashboard-content">
+<div class="page-title"><div><p class="eyebrow">STEP 02</p><h1>Data Profiling</h1></div><a href="pipeline.html" class="button primary">Run Pipeline →</a></div>
+<div class="stats-grid"><div class="stat-card"><strong>12,842</strong><span>Rows</span></div><div class="stat-card"><strong>18</strong><span>Columns</span></div><div class="stat-card"><strong>421</strong><span>Missing values</span></div><div class="stat-card"><strong>73</strong><span>Duplicates</span></div></div>
+<section class="card"><div class="card-header"><span>Column Analysis</span><span class="badge success">PROFILE COMPLETE</span></div><div class="table-wrap"><table><thead><tr><th>Column</th><th>Type</th><th>Missing</th><th>Unique</th><th>Quality</th></tr></thead><tbody>
+<tr><td><strong>customer_id</strong></td><td>Integer</td><td>0</td><td>12,842</td><td><span class="badge success">Good</span></td></tr>
+<tr><td><strong>age</strong></td><td>Integer</td><td>18</td><td>74</td><td><span class="badge success">Good</span></td></tr>
+<tr><td><strong>email</strong></td><td>String</td><td>31</td><td>12,511</td><td><span class="badge warning">Review</span></td></tr>
+<tr><td><strong>purchase_amount</strong></td><td>Float</td><td>7</td><td>9,821</td><td><span class="badge success">Good</span></td></tr>
+</tbody></table></div></section>
+</main></div><script src="js/script.js"></script></body></html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Critic Agent</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
+<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link" href="profiling.html">Profiling</a><a class="sidebar-link" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link active" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
+<main class="dashboard-content">
+<div class="page-title"><div><p class="eyebrow">AGENT 02</p><h1>Critic Agent</h1></div><span class="badge success">REVIEWED</span></div>
+<section class="card"><div class="card-header"><span>Adversarial Review</span><span class="badge warning">2 ISSUES FOUND</span></div>
+<div class="issue high"><div><span class="badge danger">HIGH</span><h3>Duplicate removal may delete valid repeated transactions</h3><p>The critic recommends checking a business key before treating every identical row as a duplicate.</p></div></div>
+<div class="issue medium"><div><span class="badge warning">MEDIUM</span><h3>Email normalization should preserve invalid-address evidence</h3><p>Lowercasing and trimming are safe, but malformed values should be flagged rather than silently discarded.</p></div></div>
+</section>
+<section class="card"><div class="card-header"><span>Decision</span><span class="badge success">PASS AFTER REVIEW</span></div><p>The proposed changes address the critic's concerns. The workflow can continue to independent validation.</p><div class="button-row"><a href="coder.html" class="button secondary">Revise Code</a><a href="validator.html" class="button primary">Approve & Validate →</a></div></section>
+</main></div><script src="js/script.js"></script></body></html>

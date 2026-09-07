@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustETL | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="brand" href="index.html">Trust<span>ETL</span></a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html">About</a>
+            <a href="upload.html" class="nav-button">Start Pipeline</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">AUTONOMOUS ETL WITH ADVERSARIAL SELF-CRITIQUE</p>
+                <h1>Transform data.<br><span>Trust the result.</span></h1>
+                <p class="hero-text">
+                    TrustETL uses a Coder Agent, an independent Critic Agent,
+                    and a Validator Agent to make data transformation more reliable.
+                </p>
+                <div class="button-row">
+                    <a href="upload.html" class="button primary">Upload Dataset</a>
+                    <a href="dashboard.html" class="button secondary">View Dashboard</a>
+                </div>
+            </div>
+
+            <div class="pipeline-preview card">
+                <div class="card-header">
+                    <span>Pipeline Preview</span>
+                    <span class="status-dot">LIVE</span>
+                </div>
+                <div class="pipeline-step">
+                    <span class="step-number">01</span>
+                    <div><strong>Profile</strong><small>Inspect dataset quality</small></div>
+                </div>
+                <div class="pipeline-step">
+                    <span class="step-number">02</span>
+                    <div><strong>Coder Agent</strong><small>Generate ETL transformation</small></div>
+                </div>
+                <div class="pipeline-step">
+                    <span class="step-number">03</span>
+                    <div><strong>Critic Agent</strong><small>Attack the proposed solution</small></div>
+                </div>
+                <div class="pipeline-step">
+                    <span class="step-number">04</span>
+                    <div><strong>Validator</strong><small>Independently verify output</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading">
+                <p class="eyebrow">WHY TRUSTETL</p>
+                <h2>ETL that challenges its own decisions.</h2>
+            </div>
+            <div class="feature-grid">
+                <article class="card feature-card">
+                    <div class="icon">01</div>
+                    <h3>Generate</h3>
+                    <p>The Coder Agent creates a transformation plan and executable ETL logic.</p>
+                </article>
+                <article class="card feature-card">
+                    <div class="icon">02</div>
+                    <h3>Challenge</h3>
+                    <p>The Critic Agent searches for missing values, bad assumptions, and statistical errors.</p>
+                </article>
+                <article class="card feature-card">
+                    <div class="icon">03</div>
+                    <h3>Verify</h3>
+                    <p>The Validator checks the final result independently before it is accepted.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">TrustETL — Autonomous ETL Agent with Adversarial Self-Critique</footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

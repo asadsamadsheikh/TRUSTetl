@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustETL | Datasets</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <p class="sidebar-label">WORKSPACE</p>
+            <a class="sidebar-link" href="dashboard.html">Dashboard</a>
+            <a class="sidebar-link active" href="datasets.html">Datasets</a>
+            <a class="sidebar-link" href="profiling.html">Profiling</a>
+            <a class="sidebar-link" href="pipeline.html">Pipeline</a>
+            <p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a>
+            <p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a>
+        </aside>
+
+        <main class="dashboard-content">
+            <div class="page-title"><div><p class="eyebrow">WORKSPACE</p><h1>Datasets</h1></div><a href="upload.html" class="button primary">Upload Dataset</a></div>
+            <section class="card">
+                <div class="card-header"><span>Uploaded Datasets</span><span class="badge success">1 READY</span></div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Dataset</th><th>Rows</th><th>Columns</th><th>Size</th><th>Status</th><th>Action</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>customer_data.csv</strong><br><small>Uploaded today</small></td><td>12,842</td><td>18</td><td>2.4 MB</td><td><span class="badge success">READY</span></td><td><a class="text-link" href="profiling.html">Profile</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

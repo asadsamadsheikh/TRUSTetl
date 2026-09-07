@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Pipeline</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">New Dataset</a></div></nav>
+<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link" href="profiling.html">Profiling</a><a class="sidebar-link active" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
+<main class="dashboard-content">
+<div class="page-title"><div><p class="eyebrow">EXECUTION GRAPH</p><h1>ETL Pipeline</h1></div><span class="badge success">PASS</span></div>
+<section class="card pipeline-card">
+<div class="flow-step"><div class="flow-icon">1</div><div><strong>Profiling</strong><small>Dataset inspected and quality issues identified.</small></div></div>
+<div class="flow-line"></div>
+<div class="flow-step"><div class="flow-icon">2</div><div><strong>Coder Agent</strong><small>Transformation code generated from the profile.</small></div></div>
+<div class="flow-line"></div>
+<div class="flow-step"><div class="flow-icon">3</div><div><strong>Critic Agent</strong><small>Proposed transformation challenged for errors.</small></div></div>
+<div class="decision"><span class="badge danger">FAIL → REVISE</span><span>or</span><span class="badge success">PASS → CONTINUE</span></div>
+<div class="flow-line"></div>
+<div class="flow-step"><div class="flow-icon">4</div><div><strong>Validator</strong><small>Independent validation checks completed.</small></div></div>
+<div class="flow-line"></div>
+<div class="flow-step"><div class="flow-icon">5</div><div><strong>Lineage</strong><small>Transformation history recorded.</small></div></div>
+<div class="flow-line"></div>
+<div class="flow-step"><div class="flow-icon">6</div><div><strong>Final Report</strong><small>Verified result and validation evidence produced.</small></div></div>
+</section>
+<div class="button-row"><a href="coder.html" class="button secondary">View Coder Agent</a><a href="critic.html" class="button secondary">View Critic</a><a href="validator.html" class="button primary">View Validator</a></div>
+</main></div><script src="js/script.js"></script></body></html>

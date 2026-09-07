@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Coder Agent</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
+<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link" href="profiling.html">Profiling</a><a class="sidebar-link" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link active" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
+<main class="dashboard-content">
+<div class="page-title"><div><p class="eyebrow">AGENT 01</p><h1>Coder Agent</h1></div><span class="badge success">COMPLETED</span></div>
+<section class="card"><div class="card-header"><span>Generated Transformation</span><span class="muted">Python / pandas</span></div>
+<pre class="code-block"><code># Load the source dataset
+df = read_dataset("customer_data.csv")
+
+# Remove duplicate records
+df = df.drop_duplicates()
+
+# Fill missing age values with the median
+df["age"] = df["age"].fillna(df["age"].median())
+
+# Normalize email text
+df["email"] = df["email"].str.strip().str.lower()
+
+# Remove invalid purchase amounts
+df = df[df["purchase_amount"] >= 0]
+
+# Save the transformed dataset
+df.to_csv("verified_customer_data.csv", index=False)</code></pre></section>
+<section class="two-column"><div class="card"><h3>Reasoning</h3><p>Duplicate records are removed, numeric missing values are handled, email strings are normalized, and invalid negative amounts are filtered.</p></div><div class="card"><h3>Next Step</h3><p>The Critic Agent will independently examine these decisions and attempt to find weaknesses.</p><a href="critic.html" class="button primary">Send to Critic →</a></div></section>
+</main></div><script src="js/script.js"></script></body></html>

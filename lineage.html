@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Lineage</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
+<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link" href="profiling.html">Profiling</a><a class="sidebar-link" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link active" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
+<main class="dashboard-content">
+<div class="page-title"><div><p class="eyebrow">AUDIT TRAIL</p><h1>Data Lineage</h1></div><span class="badge success">VERIFIED</span></div>
+<section class="card lineage">
+<div class="lineage-item"><span class="lineage-number">01</span><div><strong>customer_data.csv</strong><small>Original source · 12,842 rows</small></div></div>
+<div class="lineage-arrow">↓</div>
+<div class="lineage-item"><span class="lineage-number">02</span><div><strong>Profiling</strong><small>Detected 421 missing values and 73 duplicate rows</small></div></div>
+<div class="lineage-arrow">↓</div>
+<div class="lineage-item"><span class="lineage-number">03</span><div><strong>Coder Agent</strong><small>Generated cleaning and normalization transformations</small></div></div>
+<div class="lineage-arrow">↓</div>
+<div class="lineage-item"><span class="lineage-number">04</span><div><strong>Critic Agent</strong><small>Found 2 issues and approved revised workflow</small></div></div>
+<div class="lineage-arrow">↓</div>
+<div class="lineage-item"><span class="lineage-number">05</span><div><strong>Validator</strong><small>Independent checks passed · 92% confidence</small></div></div>
+<div class="lineage-arrow">↓</div>
+<div class="lineage-item final"><span class="lineage-number">06</span><div><strong>verified_customer_data.csv</strong><small>Final verified output</small></div></div>
+</section>
+<div class="button-row"><a href="report.html" class="button primary">Open Final Report →</a></div>
+</main></div><script src="js/script.js"></script></body></html>
