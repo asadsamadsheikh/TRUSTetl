@@ -1,81 +1,1036 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrustETL | Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+
+```
+<link rel="stylesheet" href="css/style.css">
+```
+
 </head>
+
 <body>
-    <nav class="navbar">
-        <a class="brand" href="index.html">Trust<span>ETL</span></a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="dashboard.html" class="active">Dashboard</a>
-            <a href="about.html">About</a>
-            <a href="upload.html" class="nav-button">Start Pipeline</a>
+
+```
+<!-- ================================
+     AI BACKGROUND
+================================= -->
+
+<div class="ai-background">
+
+    <div class="bg-grid"></div>
+
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+
+    <div class="data-particle particle-1"></div>
+    <div class="data-particle particle-2"></div>
+    <div class="data-particle particle-3"></div>
+    <div class="data-particle particle-4"></div>
+    <div class="data-particle particle-5"></div>
+    <div class="data-particle particle-6"></div>
+    <div class="data-particle particle-7"></div>
+    <div class="data-particle particle-8"></div>
+
+</div>
+
+
+<!-- ================================
+     NAVBAR
+================================= -->
+
+<header class="navbar">
+
+    <!-- TRUSTETL LOGO -->
+
+    <a href="index.html" class="brand">
+
+        <div class="brand-logo">
+            <span>TE</span>
         </div>
+
+        <span class="brand-name">
+            TrustETL
+        </span>
+
+    </a>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="dashboard.html" class="active">
+            Dashboard
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="upload.html" class="nav-button">
+            Start Pipeline
+        </a>
+
+
+        <!-- PROFILE -->
+
+        <div class="profile-container">
+
+            <button
+                class="profile-button"
+                id="profileButton"
+                aria-label="Open profile">
+
+                M
+
+            </button>
+
+
+            <!-- PROFILE DROPDOWN -->
+
+            <div
+                class="profile-menu"
+                id="profileMenu">
+
+                <div class="profile-header">
+
+                    <div
+                        class="profile-large"
+                        id="profileLarge">
+
+                        M
+
+                    </div>
+
+
+                    <div class="profile-details">
+
+                        <h3 id="profileName">
+                            Manav
+                        </h3>
+
+                        <p id="profileEmail">
+                            user@trustetl.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-divider"></div>
+
+
+                <!-- CHANGE PROFILE -->
+
+                <button
+                    class="profile-item"
+                    id="changeProfile">
+
+                    <span class="item-icon">
+                        👤
+                    </span>
+
+                    <span>
+                        Change profile
+                    </span>
+
+                </button>
+
+
+                <!-- ACCOUNT SETTINGS -->
+
+                <button
+                    class="profile-item"
+                    id="accountSettings">
+
+                    <span class="item-icon">
+                        ⚙
+                    </span>
+
+                    <span>
+                        Account settings
+                    </span>
+
+                </button>
+
+
+                <!-- HELP -->
+
+                <button
+                    class="profile-item"
+                    id="helpSupport">
+
+                    <span class="item-icon">
+                        ?
+                    </span>
+
+                    <span>
+                        Help &amp; support
+                    </span>
+
+                </button>
+
+
+                <div class="menu-divider"></div>
+
+
+                <!-- LOGOUT -->
+
+                <button
+                    class="profile-item logout"
+                    id="logoutButton">
+
+                    <span class="item-icon">
+                        ↪
+                    </span>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- PROFILE IMAGE INPUT -->
+
+            <input
+                type="file"
+                id="profileImageInput"
+                accept="image/png,image/jpeg,image/jpg,image/webp"
+                hidden>
+
+        </div>
+
     </nav>
 
-    <div class="dashboard-layout">
-        <aside class="sidebar">
-            <p class="sidebar-label">WORKSPACE</p>
-            <a class="sidebar-link active" href="dashboard.html">Dashboard</a>
-            <a class="sidebar-link" href="datasets.html">Datasets</a>
-            <a class="sidebar-link" href="profiling.html">Profiling</a>
-            <a class="sidebar-link" href="pipeline.html">Pipeline</a>
-            <p class="sidebar-label">AGENTS</p>
-            <a class="sidebar-link" href="coder.html">Coder Agent</a>
-            <a class="sidebar-link" href="critic.html">Critic Agent</a>
-            <a class="sidebar-link" href="validator.html">Validator</a>
-            <p class="sidebar-label">OUTPUT</p>
-            <a class="sidebar-link" href="lineage.html">Lineage</a>
-            <a class="sidebar-link" href="report.html">Reports</a>
-        </aside>
+</header>
 
-        <main class="dashboard-content">
-            <div class="page-title">
+
+<!-- ================================
+     DASHBOARD
+================================= -->
+
+<div class="dashboard-layout">
+
+
+    <!-- ================================
+         SIDEBAR
+    ================================= -->
+
+    <aside class="sidebar">
+
+        <p class="sidebar-label">
+            WORKSPACE
+        </p>
+
+        <a
+            class="sidebar-link active"
+            href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a
+            class="sidebar-link"
+            href="datasets.html">
+            Datasets
+        </a>
+
+        <a
+            class="sidebar-link"
+            href="profiling.html">
+            Profiling
+        </a>
+
+        <a
+            class="sidebar-link"
+            href="pipeline.html">
+            Pipeline
+        </a>
+
+
+        <p class="sidebar-label">
+            AGENTS
+        </p>
+
+        <a
+            class="sidebar-link"
+            href="coder.html">
+            Coder Agent
+        </a>
+
+        <a
+            class="sidebar-link"
+            href="critic.html">
+            Critic Agent
+        </a>
+
+        <a
+            class="sidebar-link"
+            href="validator.html">
+            Validator
+        </a>
+
+
+        <p class="sidebar-label">
+            OUTPUT
+        </p>
+
+        <a
+            class="sidebar-link"
+            href="lineage.html">
+            Lineage
+        </a>
+
+        <a
+            class="sidebar-link"
+            href="report.html">
+            Reports
+        </a>
+
+    </aside>
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="dashboard-content">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="page-title">
+
+            <div>
+
+                <p class="eyebrow">
+                    TRUSTETL WORKSPACE
+                </p>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p class="dashboard-subtitle">
+                    Monitor your autonomous ETL workflow, data quality,
+                    agent decisions and validation status.
+                </p>
+
+            </div>
+
+            <a
+                href="upload.html"
+                class="button primary">
+                + New Dataset
+            </a>
+
+        </div>
+
+
+        <!-- ================================
+             SYSTEM STATUS
+        ================================= -->
+
+        <section class="dashboard-status-banner">
+
+            <div class="system-status-left">
+
+                <span class="system-pulse"></span>
+
                 <div>
-                    <p class="eyebrow">WORKSPACE</p>
-                    <h1>Dashboard</h1>
+
+                    <strong>
+                        TrustETL System Operational
+                    </strong>
+
+                    <small>
+                        All agents are available and ready
+                    </small>
+
                 </div>
-                <a href="upload.html" class="button primary">+ New Dataset</a>
+
             </div>
 
-            <div class="stats-grid">
-                <div class="stat-card"><strong>01</strong><span>Active dataset</span></div>
-                <div class="stat-card"><strong>06</strong><span>Pipeline stages</span></div>
-                <div class="stat-card"><strong>92%</strong><span>Confidence</span></div>
-                <div class="stat-card"><strong>PASS</strong><span>Current status</span></div>
+
+            <div class="system-status-right">
+
+                <span class="system-status-item">
+                    ● API Connected
+                </span>
+
+                <span class="system-status-item">
+                    ● Validator Ready
+                </span>
+
+                <span class="system-status-item">
+                    ● Audit Active
+                </span>
+
             </div>
 
-            <div class="two-column">
-                <section class="card">
-                    <div class="card-header"><span>Current Dataset</span><span class="badge success">READY</span></div>
-                    <h2>customer_data.csv</h2>
-                    <p class="muted">12,842 rows · 18 columns · 2.4 MB</p>
-                    <div class="progress"><div class="progress-bar" style="width: 92%"></div></div>
-                    <p class="muted">Validation confidence: 92%</p>
-                    <a href="profiling.html" class="text-link">View profiling →</a>
-                </section>
+        </section>
 
-                <section class="card">
-                    <div class="card-header"><span>Pipeline Status</span><span class="badge success">PASS</span></div>
-                    <div class="mini-status"><span class="status-check">✓</span><div><strong>Profiling</strong><small>Completed</small></div></div>
-                    <div class="mini-status"><span class="status-check">✓</span><div><strong>Coder Agent</strong><small>Completed</small></div></div>
-                    <div class="mini-status"><span class="status-check">✓</span><div><strong>Critic Agent</strong><small>Reviewed and approved</small></div></div>
-                    <div class="mini-status"><span class="status-check">✓</span><div><strong>Validator</strong><small>Independent checks passed</small></div></div>
-                </section>
+
+        <!-- ================================
+             QUALITY SCORE
+        ================================= -->
+
+        <section class="quality-dashboard">
+
+            <div class="quality-main">
+
+                <div class="quality-score-circle">
+
+                    <div>
+
+                        <strong>
+                            92
+                        </strong>
+
+                        <span>
+                            /100
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quality-info">
+
+                    <p class="eyebrow">
+                        DATA QUALITY
+                    </p>
+
+                    <h2>
+                        Excellent Dataset Quality
+                    </h2>
+
+                    <p>
+                        The current dataset successfully passed profiling,
+                        transformation review and independent validation.
+                    </p>
+
+
+                    <div class="quality-tags">
+
+                        <span class="quality-tag">
+                            ✓ Schema Valid
+                        </span>
+
+                        <span class="quality-tag">
+                            ✓ No Critical Errors
+                        </span>
+
+                        <span class="quality-tag">
+                            ✓ Lineage Recorded
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <section class="card">
-                <div class="card-header"><span>Recent Activity</span><a href="report.html" class="text-link">View report →</a></div>
-                <div class="activity-row"><span>✓</span><div><strong>Validation completed</strong><small>Confidence score reached 92%</small></div><time>Just now</time></div>
-                <div class="activity-row"><span>✓</span><div><strong>Critic review passed</strong><small>No unresolved high-severity issues</small></div><time>1 min ago</time></div>
-                <div class="activity-row"><span>✓</span><div><strong>Transformation generated</strong><small>Coder Agent created ETL logic</small></div><time>2 min ago</time></div>
+
+            <div class="quality-metrics">
+
+                <div>
+
+                    <span>
+                        Missing Values
+                    </span>
+
+                    <strong>
+                        0.8%
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Duplicate Rows
+                    </span>
+
+                    <strong>
+                        0.2%
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Schema Integrity
+                    </span>
+
+                    <strong>
+                        100%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             STATISTICS
+        ================================= -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card dashboard-stat-card">
+
+                <div class="stat-icon">
+                    ◉
+                </div>
+
+                <strong>
+                    01
+                </strong>
+
+                <span>
+                    Active dataset
+                </span>
+
+                <small>
+                    customer_data.csv
+                </small>
+
+            </div>
+
+
+            <div class="stat-card dashboard-stat-card">
+
+                <div class="stat-icon">
+                    ◇
+                </div>
+
+                <strong>
+                    06
+                </strong>
+
+                <span>
+                    Pipeline stages
+                </span>
+
+                <small>
+                    All completed
+                </small>
+
+            </div>
+
+
+            <div class="stat-card dashboard-stat-card">
+
+                <div class="stat-icon">
+                    ✦
+                </div>
+
+                <strong>
+                    92%
+                </strong>
+
+                <span>
+                    Confidence
+                </span>
+
+                <small>
+                    High confidence
+                </small>
+
+            </div>
+
+
+            <div class="stat-card dashboard-stat-card">
+
+                <div class="stat-icon">
+                    ✓
+                </div>
+
+                <strong class="pass-text">
+                    PASS
+                </strong>
+
+                <span>
+                    Current status
+                </span>
+
+                <small>
+                    Validation successful
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             DATASET + PIPELINE
+        ================================= -->
+
+        <div class="two-column">
+
+
+            <!-- CURRENT DATASET -->
+
+            <section class="card enhanced-card">
+
+                <div class="card-header">
+
+                    <span>
+                        Current Dataset
+                    </span>
+
+                    <span class="badge success">
+                        READY
+                    </span>
+
+                </div>
+
+
+                <div class="dataset-title-row">
+
+                    <div class="dataset-file-icon">
+                        CSV
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            customer_data.csv
+                        </h2>
+
+                        <p class="muted">
+                            Last processed just now
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dataset-stats">
+
+                    <div>
+
+                        <strong>
+                            12,842
+                        </strong>
+
+                        <span>
+                            Rows
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            18
+                        </strong>
+
+                        <span>
+                            Columns
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            2.4 MB
+                        </strong>
+
+                        <span>
+                            Size
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar dashboard-progress"
+                        style="width: 92%">
+                    </div>
+
+                </div>
+
+
+                <div class="progress-label">
+
+                    <span>
+                        Validation confidence
+                    </span>
+
+                    <strong>
+                        92%
+                    </strong>
+
+                </div>
+
+
+                <a
+                    href="profiling.html"
+                    class="text-link">
+                    View profiling →
+                </a>
+
             </section>
-        </main>
-    </div>
-    <script src="js/script.js"></script>
+
+
+            <!-- PIPELINE STATUS -->
+
+            <section class="card enhanced-card">
+
+                <div class="card-header">
+
+                    <span>
+                        Pipeline Status
+                    </span>
+
+                    <span class="badge success">
+                        PASS
+                    </span>
+
+                </div>
+
+
+                <div class="pipeline-mini-progress">
+
+                    <span style="width: 100%"></span>
+
+                </div>
+
+
+                <div class="mini-status dashboard-mini-status">
+
+                    <span class="status-check animated-check">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Profiling
+                        </strong>
+
+                        <small>
+                            Data structure analyzed
+                        </small>
+
+                    </div>
+
+                    <em>
+                        0.8s
+                    </em>
+
+                </div>
+
+
+                <div class="mini-status dashboard-mini-status">
+
+                    <span class="status-check animated-check">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Coder Agent
+                        </strong>
+
+                        <small>
+                            Transformation generated
+                        </small>
+
+                    </div>
+
+                    <em>
+                        1.4s
+                    </em>
+
+                </div>
+
+
+                <div class="mini-status dashboard-mini-status">
+
+                    <span class="status-check animated-check">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Critic Agent
+                        </strong>
+
+                        <small>
+                            Reviewed and approved
+                        </small>
+
+                    </div>
+
+                    <em>
+                        1.1s
+                    </em>
+
+                </div>
+
+
+                <div class="mini-status dashboard-mini-status">
+
+                    <span class="status-check animated-check">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Validator
+                        </strong>
+
+                        <small>
+                            Independent checks passed
+                        </small>
+
+                    </div>
+
+                    <em>
+                        0.7s
+                    </em>
+
+                </div>
+
+
+                <a
+                    href="pipeline.html"
+                    class="text-link">
+                    View execution graph →
+                </a>
+
+            </section>
+
+        </div>
+
+
+        <!-- ================================
+             AI AGENT ACTIVITY
+        ================================= -->
+
+        <section class="card ai-activity-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span>
+                        AI Agent Activity
+                    </span>
+
+                    <small class="section-description">
+                        Autonomous reasoning workflow
+                    </small>
+
+                </div>
+
+
+                <span class="live-status">
+
+                    <span class="live-dot"></span>
+
+                    LIVE
+
+                </span>
+
+            </div>
+
+
+            <div class="agent-activity-grid">
+
+
+                <!-- PROFILER -->
+
+                <div class="agent-activity-item completed-agent">
+
+                    <div class="agent-avatar">
+                        P
+                    </div>
+
+                    <div class="agent-activity-content">
+
+                        <div class="agent-name-row">
+
+                            <strong>
+                                Data Profiler
+                            </strong>
+
+                            <span>
+                                COMPLETED
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Identified 18 columns and analyzed
+                            missing-value patterns.
+                        </p>
+
+                        <small>
+                            ✓ Structural analysis complete
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CODER -->
+
+                <div class="agent-activity-item completed-agent">
+
+                    <div class="agent-avatar">
+                        C
+                    </div>
+
+                    <div class="agent-activity-content">
+
+                        <div class="agent-name-row">
+
+                            <strong>
+                                Coder Agent
+                            </strong>
+
+                            <span>
+                                COMPLETED
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Generated transformation logic for
+                            data normalization.
+                        </p>
+
+                        <small>
+                            ✓ Transformation generated
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CRITIC -->
+
+                <div class="agent-activity-item reviewed-agent">
+
+                    <div class="agent-avatar">
+                        CR
+                    </div>
+
+                    <div class="agent-activity-content">
+
+                        <div class="agent-name-row">
+
+                            <strong>
+                                Critic Agent
+                            </strong>
+
+                            <span>
+                                REVIEWED
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Challenged the generated logic and
+                            checked for silent data loss.
+                        </p>
+
+                        <small>
+                            ✓ No high-severity issues
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VALIDATOR -->
+
+                <div class="agent-activity-item completed-agent">
+
+                    <div class="agent-avatar">
+                        V
+                    </div>
+
+                    <div class="agent-activity-content">
+
+                        <div class="agent-name-row">
+
+                            <strong>
+                                Validator
+                            </strong>
+
+                            <span>
+                                PASSED
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Executed independent assertion checks
+                            and verified target schema integrity.
+                        </p>
+
+                        <small>
+                            ✓ Verification successful
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================================
+     JAVASCRIPT
+================================= -->
+
+<script src="js/script.js"></script>
+```
+
 </body>
+
 </html>
