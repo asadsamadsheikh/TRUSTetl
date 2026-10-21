@@ -1,24 +1,792 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Pipeline</title><link rel="stylesheet" href="css/style.css"></head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustETL | Pipeline</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body>
-<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">New Dataset</a></div></nav>
-<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link" href="profiling.html">Profiling</a><a class="sidebar-link active" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
-<main class="dashboard-content">
-<div class="page-title"><div><p class="eyebrow">EXECUTION GRAPH</p><h1>ETL Pipeline</h1></div><span class="badge success">PASS</span></div>
-<section class="card pipeline-card">
-<div class="flow-step"><div class="flow-icon">1</div><div><strong>Profiling</strong><small>Dataset inspected and quality issues identified.</small></div></div>
-<div class="flow-line"></div>
-<div class="flow-step"><div class="flow-icon">2</div><div><strong>Coder Agent</strong><small>Transformation code generated from the profile.</small></div></div>
-<div class="flow-line"></div>
-<div class="flow-step"><div class="flow-icon">3</div><div><strong>Critic Agent</strong><small>Proposed transformation challenged for errors.</small></div></div>
-<div class="decision"><span class="badge danger">FAIL → REVISE</span><span>or</span><span class="badge success">PASS → CONTINUE</span></div>
-<div class="flow-line"></div>
-<div class="flow-step"><div class="flow-icon">4</div><div><strong>Validator</strong><small>Independent validation checks completed.</small></div></div>
-<div class="flow-line"></div>
-<div class="flow-step"><div class="flow-icon">5</div><div><strong>Lineage</strong><small>Transformation history recorded.</small></div></div>
-<div class="flow-line"></div>
-<div class="flow-step"><div class="flow-icon">6</div><div><strong>Final Report</strong><small>Verified result and validation evidence produced.</small></div></div>
-</section>
-<div class="button-row"><a href="coder.html" class="button secondary">View Coder Agent</a><a href="critic.html" class="button secondary">View Critic</a><a href="validator.html" class="button primary">View Validator</a></div>
-</main></div><script src="js/script.js"></script></body></html>
+
+    <!-- =========================
+         AI BACKGROUND
+    ========================== -->
+    <div class="ai-background">
+
+        <div class="bg-grid"></div>
+
+        <div class="bg-orb orb-one"></div>
+        <div class="bg-orb orb-two"></div>
+
+        <div class="data-particle particle-1"></div>
+        <div class="data-particle particle-2"></div>
+        <div class="data-particle particle-3"></div>
+        <div class="data-particle particle-4"></div>
+        <div class="data-particle particle-5"></div>
+        <div class="data-particle particle-6"></div>
+        <div class="data-particle particle-7"></div>
+        <div class="data-particle particle-8"></div>
+
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header class="navbar">
+
+        <!-- TrustETL Logo -->
+        <a href="index.html" class="brand">
+
+            <div class="brand-logo">
+                <span>TE</span>
+            </div>
+
+            <span class="brand-name">
+                Trust<span>ETL</span>
+            </span>
+
+        </a>
+
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="upload.html" class="nav-button">
+                Start Pipeline
+            </a>
+
+
+            <!-- =========================
+                 PROFILE
+            ========================== -->
+            <div class="profile-container">
+
+                <button
+                    class="profile-button"
+                    id="profileButton"
+                    type="button"
+                >
+
+                    <img
+                        id="profileImage"
+                        class="profile-image"
+                        src=""
+                        alt="Profile"
+                        style="display: none;"
+                    >
+
+                    <span
+                        id="profileInitial"
+                        class="profile-initial"
+                    >
+                        M
+                    </span>
+
+                </button>
+
+
+                <!-- Profile Dropdown -->
+                <div
+                    class="profile-menu"
+                    id="profileMenu"
+                >
+
+                    <div class="profile-header">
+
+                        <div
+                            class="profile-large"
+                            id="profileLarge"
+                        >
+
+                            <img
+                                id="profileMenuImage"
+                                class="profile-image"
+                                src=""
+                                alt="Profile"
+                                style="display: none;"
+                            >
+
+                            <span id="profileMenuInitial">
+                                M
+                            </span>
+
+                        </div>
+
+
+                        <div class="profile-details">
+
+                            <strong id="profileName">
+                                Manav
+                            </strong>
+
+                            <span id="profileEmail">
+                                manav@trustetl.demo
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="menu-divider"></div>
+
+
+                    <button
+                        class="profile-item"
+                        id="changeProfile"
+                        type="button"
+                    >
+                        <span class="item-icon">👤</span>
+                        <span>Change profile</span>
+                    </button>
+
+
+                    <button
+                        class="profile-item"
+                        id="accountSettings"
+                        type="button"
+                    >
+                        <span class="item-icon">⚙️</span>
+                        <span>Account settings</span>
+                    </button>
+
+
+                    <button
+                        class="profile-item"
+                        id="helpSupport"
+                        type="button"
+                    >
+                        <span class="item-icon">❓</span>
+                        <span>Help &amp; support</span>
+                    </button>
+
+
+                    <div class="menu-divider"></div>
+
+
+                    <button
+                        class="profile-item logout"
+                        id="logoutButton"
+                        type="button"
+                    >
+                        <span class="item-icon">↪</span>
+                        <span>Logout</span>
+                    </button>
+
+                </div>
+
+
+                <!-- Hidden Profile Image Input -->
+                <input
+                    type="file"
+                    id="profileImageInput"
+                    accept="image/*"
+                    hidden
+                >
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         DASHBOARD LAYOUT
+    ========================== -->
+    <div class="dashboard-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <p class="sidebar-label">
+                WORKSPACE
+            </p>
+
+
+            <a class="sidebar-link" href="dashboard.html">
+                Dashboard
+            </a>
+
+
+            <a class="sidebar-link" href="datasets.html">
+                Datasets
+            </a>
+
+
+            <a class="sidebar-link" href="profiling.html">
+                Profiling
+            </a>
+
+
+            <a class="sidebar-link active" href="pipeline.html">
+                Pipeline
+            </a>
+
+
+            <p class="sidebar-label">
+                AGENTS
+            </p>
+
+
+            <a class="sidebar-link" href="coder.html">
+                Coder Agent
+            </a>
+
+
+            <a class="sidebar-link" href="critic.html">
+                Critic Agent
+            </a>
+
+
+            <a class="sidebar-link" href="validator.html">
+                Validator
+            </a>
+
+
+            <p class="sidebar-label">
+                OUTPUT
+            </p>
+
+
+            <a class="sidebar-link" href="lineage.html">
+                Lineage
+            </a>
+
+
+            <a class="sidebar-link" href="report.html">
+                Reports
+            </a>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+        <main class="dashboard-content">
+
+
+            <!-- Page Header -->
+            <div class="page-title">
+
+                <div>
+
+                    <p class="eyebrow">
+                        EXECUTION GRAPH
+                    </p>
+
+                    <h1>
+                        ETL Pipeline
+                    </h1>
+
+                </div>
+
+
+                <span class="badge success pipeline-live-badge">
+                    ● PIPELINE PASSED
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PIPELINE OVERVIEW
+            ========================== -->
+            <section class="pipeline-overview card">
+
+                <div class="pipeline-overview-header">
+
+                    <div>
+
+                        <span class="pipeline-label">
+                            CURRENT EXECUTION
+                        </span>
+
+                        <h2>
+                            customer_data.csv
+                        </h2>
+
+                    </div>
+
+
+                    <div class="pipeline-progress-text">
+                        <strong>100%</strong>
+                        <span>Completed</span>
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-progress">
+
+                    <div class="pipeline-progress-bar"></div>
+
+                </div>
+
+
+                <div class="pipeline-meta">
+
+                    <span>
+                        ✓ 6 stages completed
+                    </span>
+
+                    <span>
+                        ↻ 1 revision cycle
+                    </span>
+
+                    <span>
+                        🛡 Validation passed
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 PIPELINE FLOW
+            ========================== -->
+            <section class="card pipeline-card enhanced-pipeline">
+
+
+                <!-- PIPELINE HEADER -->
+                <div class="pipeline-header">
+
+                    <div>
+
+                        <span class="pipeline-label">
+                            AUTONOMOUS WORKFLOW
+                        </span>
+
+                        <h3>
+                            TrustETL Execution Flow
+                        </h3>
+
+                    </div>
+
+
+                    <div class="live-status">
+
+                        <span class="live-dot"></span>
+
+                        Execution complete
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     STEP 1
+                ========================== -->
+                <div class="flow-step enhanced-flow-step completed">
+
+                    <div class="flow-icon animated-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="flow-content">
+
+                        <div class="flow-title-row">
+
+                            <strong>
+                                Profiling
+                            </strong>
+
+                            <span class="step-status">
+                                COMPLETED
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Dataset inspected and quality issues identified.
+                        </small>
+
+                        <span class="execution-time">
+                            1.8s
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="flow-line animated-line"></div>
+
+
+
+                <!-- =========================
+                     STEP 2
+                ========================== -->
+                <div class="flow-step enhanced-flow-step completed agent-step">
+
+                    <div class="flow-icon animated-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="flow-content">
+
+                        <div class="flow-title-row">
+
+                            <strong>
+                                Coder Agent
+                            </strong>
+
+                            <span class="step-status">
+                                COMPLETED
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Transformation code generated from the profile.
+                        </small>
+
+                        <span class="execution-time">
+                            2.4s
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="flow-line animated-line"></div>
+
+
+
+                <!-- =========================
+                     STEP 3
+                ========================== -->
+                <div class="flow-step enhanced-flow-step completed agent-step critic-step">
+
+                    <div class="flow-icon animated-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="flow-content">
+
+                        <div class="flow-title-row">
+
+                            <strong>
+                                Critic Agent
+                            </strong>
+
+                            <span class="step-status warning-status">
+                                REVIEWED
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Proposed transformation challenged for errors.
+                        </small>
+
+                        <span class="execution-time">
+                            3.1s
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     REVISION LOOP
+                ========================== -->
+                <div class="revision-loop">
+
+                    <div class="revision-arrow">
+                        ↻
+                    </div>
+
+                    <div class="revision-content">
+
+                        <strong>
+                            Self-Critique Loop
+                        </strong>
+
+                        <span>
+                            2 issues detected → transformation revised
+                        </span>
+
+                    </div>
+
+                    <span class="badge danger">
+                        1 REVISION
+                    </span>
+
+                </div>
+
+
+
+                <!-- DECISION -->
+                <div class="decision enhanced-decision">
+
+                    <span class="badge danger">
+                        FAIL → REVISE
+                    </span>
+
+                    <span>
+                        or
+                    </span>
+
+                    <span class="badge success">
+                        PASS → CONTINUE
+                    </span>
+
+                </div>
+
+
+
+                <div class="flow-line animated-line"></div>
+
+
+
+                <!-- =========================
+                     STEP 4
+                ========================== -->
+                <div class="flow-step enhanced-flow-step completed validator-step">
+
+                    <div class="flow-icon animated-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="flow-content">
+
+                        <div class="flow-title-row">
+
+                            <strong>
+                                Validator
+                            </strong>
+
+                            <span class="step-status">
+                                PASSED
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Independent validation checks completed.
+                        </small>
+
+                        <span class="execution-time">
+                            1.6s
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="flow-line animated-line"></div>
+
+
+
+                <!-- =========================
+                     STEP 5
+                ========================== -->
+                <div class="flow-step enhanced-flow-step completed">
+
+                    <div class="flow-icon animated-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="flow-content">
+
+                        <div class="flow-title-row">
+
+                            <strong>
+                                Lineage
+                            </strong>
+
+                            <span class="step-status">
+                                RECORDED
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Transformation history recorded for auditability.
+                        </small>
+
+                        <span class="execution-time">
+                            0.7s
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="flow-line animated-line"></div>
+
+
+
+                <!-- =========================
+                     STEP 6
+                ========================== -->
+                <div class="flow-step enhanced-flow-step completed final-step">
+
+                    <div class="flow-icon animated-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="flow-content">
+
+                        <div class="flow-title-row">
+
+                            <strong>
+                                Final Report
+                            </strong>
+
+                            <span class="step-status">
+                                VERIFIED
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Verified result and validation evidence produced.
+                        </small>
+
+                        <span class="execution-time">
+                            0.4s
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 PIPELINE RESULT
+            ========================== -->
+            <section class="pipeline-result card">
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+
+                <div class="result-content">
+
+                    <span class="pipeline-label">
+                        FINAL RESULT
+                    </span>
+
+                    <h3>
+                        Dataset successfully verified
+                    </h3>
+
+                    <p>
+                        TrustETL completed the ETL workflow,
+                        identified issues, revised the transformation,
+                        and independently validated the final output.
+                    </p>
+
+                </div>
+
+
+                <div class="result-confidence">
+
+                    <strong>
+                        92%
+                    </strong>
+
+                    <span>
+                        Confidence
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 ACTION BUTTONS
+            ========================== -->
+            <div class="button-row">
+
+                <a
+                    href="coder.html"
+                    class="button secondary"
+                >
+                    View Coder Agent
+                </a>
+
+
+                <a
+                    href="critic.html"
+                    class="button secondary"
+                >
+                    View Critic
+                </a>
+
+
+                <a
+                    href="validator.html"
+                    class="button primary"
+                >
+                    View Validator
+                </a>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
