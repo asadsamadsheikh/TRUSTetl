@@ -1,159 +1,512 @@
-/*
- * TrustETL - Main JavaScript
- * Simple frontend interactions for the student prototype.
- */
+// ==========================================
+// TRUSTETL MAIN JAVASCRIPT
+// ==========================================
 
-document.addEventListener("DOMContentLoaded", function () {
-    setupUploadPage();
-    setupDragAndDrop();
-    setupSmoothScrolling();
-});
 
-/*
- * Handles file selection on upload.html.
- */
-function setupUploadPage() {
-    const fileInput = document.getElementById("fileInput");
-    const fileDetails = document.getElementById("fileDetails");
-    const fileName = document.getElementById("fileName");
-    const fileSize = document.getElementById("fileSize");
-    const continueButton = document.getElementById("continueButton");
-    const removeFileButton = document.getElementById("removeFile");
+// ==========================================
+// PROFILE ELEMENTS
+// ==========================================
 
-    if (!fileInput) {
+const profileButton =
+    document.getElementById("profileButton");
+
+const profileMenu =
+    document.getElementById("profileMenu");
+
+const profileName =
+    document.getElementById("profileName");
+
+const profileEmail =
+    document.getElementById("profileEmail");
+
+const profileLarge =
+    document.getElementById("profileLarge");
+
+const profileImageInput =
+    document.getElementById("profileImageInput");
+
+const changeProfile =
+    document.getElementById("changeProfile");
+
+const accountSettings =
+    document.getElementById("accountSettings");
+
+const helpSupport =
+    document.getElementById("helpSupport");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+
+// ==========================================
+// USER DATA FROM LOGIN
+// ==========================================
+
+const savedName =
+    localStorage.getItem("trustetl_name");
+
+const savedEmail =
+    localStorage.getItem("trustetl_email");
+
+
+const userName =
+    savedName || "Manav";
+
+
+const userEmail =
+    savedEmail || "user@trustetl.com";
+
+
+// ==========================================
+// PROFILE INITIAL
+// ==========================================
+
+function getInitial(name) {
+
+    if (!name) {
+
+        return "M";
+
+    }
+
+    return name
+        .charAt(0)
+        .toUpperCase();
+
+}
+
+
+const initial =
+    getInitial(userName);
+
+
+// ==========================================
+// DISPLAY USER INFORMATION
+// ==========================================
+
+if (profileName) {
+
+    profileName.textContent =
+        userName;
+
+}
+
+
+if (profileEmail) {
+
+    profileEmail.textContent =
+        userEmail;
+
+}
+
+
+if (profileButton) {
+
+    profileButton.textContent =
+        initial;
+
+}
+
+
+if (profileLarge) {
+
+    profileLarge.textContent =
+        initial;
+
+}
+
+
+// ==========================================
+// PROFILE IMAGE
+// ==========================================
+
+const savedProfileImage =
+    localStorage.getItem(
+        "trustetl_profile"
+    );
+
+
+function setProfileImage(image) {
+
+    if (!profileButton ||
+        !profileLarge) {
+
         return;
+
     }
 
-    fileInput.addEventListener("change", function () {
-        if (fileInput.files.length === 0) {
-            return;
+
+    if (image) {
+
+        profileButton.textContent = "";
+
+        profileLarge.textContent = "";
+
+
+        profileButton.style.backgroundImage =
+            `url("${image}")`;
+
+        profileButton.style.backgroundSize =
+            "cover";
+
+        profileButton.style.backgroundPosition =
+            "center";
+
+
+        profileLarge.style.backgroundImage =
+            `url("${image}")`;
+
+        profileLarge.style.backgroundSize =
+            "cover";
+
+        profileLarge.style.backgroundPosition =
+            "center";
+
+
+    } else {
+
+        profileButton.style.backgroundImage =
+            "none";
+
+        profileLarge.style.backgroundImage =
+            "none";
+
+
+        profileButton.textContent =
+            initial;
+
+        profileLarge.textContent =
+            initial;
+
+    }
+
+}
+
+
+if (savedProfileImage) {
+
+    setProfileImage(
+        savedProfileImage
+    );
+
+}
+
+
+// ==========================================
+// OPEN PROFILE MENU
+// ==========================================
+
+if (profileButton) {
+
+    profileButton.addEventListener(
+        "click",
+        function(event) {
+
+            event.stopPropagation();
+
+            profileMenu.classList.toggle(
+                "show"
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// CLOSE PROFILE MENU
+// ==========================================
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            profileMenu &&
+            !profileMenu.contains(
+                event.target
+            ) &&
+            event.target !== profileButton
+        ) {
+
+            profileMenu.classList.remove(
+                "show"
+            );
+
         }
 
-        const selectedFile = fileInput.files[0];
+    }
+);
 
-        if (!isValidFile(selectedFile)) {
-            alert("Please select a CSV, XLSX, XLS, or JSON file smaller than 50 MB.");
-            fileInput.value = "";
-            return;
+
+// ==========================================
+// CHANGE PROFILE PHOTO
+// ==========================================
+
+if (
+    changeProfile &&
+    profileImageInput
+) {
+
+    changeProfile.addEventListener(
+        "click",
+        function() {
+
+            profileImageInput.click();
+
         }
+    );
 
-        showSelectedFile(selectedFile);
-    });
-
-    if (removeFileButton) {
-        removeFileButton.addEventListener("click", function () {
-            fileInput.value = "";
-            fileDetails.classList.add("hidden");
-            continueButton.classList.add("disabled");
-        });
-    }
-
-    function showSelectedFile(file) {
-        fileName.textContent = file.name;
-        fileSize.textContent = formatFileSize(file.size);
-
-        fileDetails.classList.remove("hidden");
-        continueButton.classList.remove("disabled");
-
-        // Save the filename so another page can use it in this prototype.
-        localStorage.setItem("trustetl_dataset", file.name);
-    }
 }
 
-/*
- * Checks the uploaded file type and size.
- */
-function isValidFile(file) {
-    const allowedExtensions = [".csv", ".xlsx", ".xls", ".json"];
-    const fileName = file.name.toLowerCase();
 
-    const hasValidExtension = allowedExtensions.some(function (extension) {
-        return fileName.endsWith(extension);
-    });
+// ==========================================
+// IMAGE UPLOAD
+// ==========================================
 
-    const maximumSize = 50 * 1024 * 1024;
+if (profileImageInput) {
 
-    return hasValidExtension && file.size <= maximumSize;
-}
+    profileImageInput.addEventListener(
+        "change",
+        function() {
 
-/*
- * Converts bytes into a readable file size.
- */
-function formatFileSize(bytes) {
-    if (bytes < 1024) {
-        return bytes + " B";
-    }
+            const file =
+                profileImageInput.files[0];
 
-    if (bytes < 1024 * 1024) {
-        return (bytes / 1024).toFixed(1) + " KB";
-    }
 
-    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
-}
+            if (!file) {
 
-/*
- * Adds drag-and-drop support to the upload area.
- */
-function setupDragAndDrop() {
-    const dropZone = document.getElementById("dropZone");
-    const fileInput = document.getElementById("fileInput");
-
-    if (!dropZone || !fileInput) {
-        return;
-    }
-
-    ["dragenter", "dragover"].forEach(function (eventName) {
-        dropZone.addEventListener(eventName, function (event) {
-            event.preventDefault();
-            dropZone.classList.add("dragging");
-        });
-    });
-
-    ["dragleave", "drop"].forEach(function (eventName) {
-        dropZone.addEventListener(eventName, function (event) {
-            event.preventDefault();
-            dropZone.classList.remove("dragging");
-        });
-    });
-
-    dropZone.addEventListener("drop", function (event) {
-        const droppedFiles = event.dataTransfer.files;
-
-        if (droppedFiles.length === 0) {
-            return;
-        }
-
-        fileInput.files = droppedFiles;
-
-        // Trigger the same validation used by normal file selection.
-        fileInput.dispatchEvent(new Event("change"));
-    });
-}
-
-/*
- * Enables smooth scrolling for links that point to sections on the same page.
- */
-function setupSmoothScrolling() {
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-
-    anchorLinks.forEach(function (link) {
-        link.addEventListener("click", function (event) {
-            const targetId = link.getAttribute("href");
-
-            if (targetId === "#") {
                 return;
+
             }
 
-            const targetElement = document.querySelector(targetId);
 
-            if (targetElement) {
-                event.preventDefault();
+            // Check image type
 
-                targetElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+            if (!file.type.startsWith("image/")) {
+
+                alert(
+                    "Please select a valid image."
+                );
+
+                return;
+
             }
-        });
-    });
+
+
+            // Maximum 2 MB
+
+            if (
+                file.size >
+                2 * 1024 * 1024
+            ) {
+
+                alert(
+                    "Profile image must be smaller than 2 MB."
+                );
+
+                profileImageInput.value = "";
+
+                return;
+
+            }
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(event) {
+
+                    const image =
+                        event.target.result;
+
+
+                    localStorage.setItem(
+                        "trustetl_profile",
+                        image
+                    );
+
+
+                    setProfileImage(
+                        image
+                    );
+
+                };
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
 }
+
+
+// ==========================================
+// ACCOUNT SETTINGS
+// ==========================================
+
+if (accountSettings) {
+
+    accountSettings.addEventListener(
+        "click",
+        function() {
+
+            alert(
+                "Account settings will be connected to the backend later."
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// HELP
+// ==========================================
+
+if (helpSupport) {
+
+    helpSupport.addEventListener(
+        "click",
+        function() {
+
+            alert(
+                "TrustETL Help & Support will be available soon."
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+if (logoutButton) {
+
+    logoutButton.addEventListener(
+        "click",
+        function() {
+
+            const confirmLogout =
+                confirm(
+                    "Are you sure you want to logout?"
+                );
+
+
+            if (!confirmLogout) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(
+                "trustetl_logged_in"
+            );
+
+            localStorage.removeItem(
+                "trustetl_demo"
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// LOGIN PROTECTION
+// ==========================================
+
+function checkLogin() {
+
+    const loggedIn =
+        localStorage.getItem(
+            "trustetl_logged_in"
+        );
+
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop();
+
+
+    if (
+        currentPage !== "login.html" &&
+        currentPage !== "" &&
+        !loggedIn
+    ) {
+
+        window.location.href =
+            "login.html";
+
+    }
+
+}
+
+
+checkLogin();
+
+
+// ==========================================
+// SMOOTH SCROLL
+// ==========================================
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(
+    function(link) {
+
+        link.addEventListener(
+            "click",
+            function(event) {
+
+                const targetId =
+                    link.getAttribute("href");
+
+
+                if (
+                    targetId === "#" ||
+                    !targetId
+                ) {
+
+                    return;
+
+                }
+
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+
+                if (target) {
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    }
+);
+
