@@ -1,14 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Validator</title><link rel="stylesheet" href="css/style.css"></head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustETL | Validator</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body>
-<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
-<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link" href="profiling.html">Profiling</a><a class="sidebar-link" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link active" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
-<main class="dashboard-content">
-<div class="page-title"><div><p class="eyebrow">AGENT 03</p><h1>Validator</h1></div><span class="badge success">PASS</span></div>
-<section class="validation-grid">
-<div class="validation-score card"><span>Validation confidence</span><strong>92%</strong><div class="progress"><div class="progress-bar" style="width:92%"></div></div><p class="muted">Independent verification completed.</p></div>
-<div class="card"><h3>Validation checks</h3><div class="check-row"><span>✓</span><div><strong>Schema consistency</strong><small>Passed</small></div></div><div class="check-row"><span>✓</span><div><strong>Missing-value policy</strong><small>Passed</small></div></div><div class="check-row"><span>✓</span><div><strong>Duplicate policy</strong><small>Passed</small></div></div><div class="check-row"><span>✓</span><div><strong>Value-range checks</strong><small>Passed</small></div></div><div class="check-row"><span>✓</span><div><strong>Output row integrity</strong><small>Passed</small></div></div></div>
-</section>
-<div class="button-row"><a href="lineage.html" class="button primary">View Lineage →</a><a href="report.html" class="button secondary">Open Final Report</a></div>
-</main></div><script src="js/script.js"></script></body></html>
+
+    <div class="ai-background">
+
+    <div class="bg-grid"></div>
+
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+
+    <div class="data-particle particle-1"></div>
+    <div class="data-particle particle-2"></div>
+    <div class="data-particle particle-3"></div>
+    <div class="data-particle particle-4"></div>
+    <div class="data-particle particle-5"></div>
+    <div class="data-particle particle-6"></div>
+    <div class="data-particle particle-7"></div>
+    <div class="data-particle particle-8"></div>
+
+</div>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header class="navbar">
+
+        <!-- TrustETL Logo -->
+        <a href="index.html" class="brand">
+
+            <div class="brand-logo">
+                <span>TE</span>
+            </div>
+
+            <span class="brand-name">
+                Trust<span>ETL</span>
+            </span>
+
+        </a>
+
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="upload.html" class="nav-button">
+                Start Pipeline
+            </a>
+
+
+            <!-- PROFILE -->
+            <div class="profile-container">
+
+                <button
+                    class="profile-button"
+                    id="profileButton"
+                    type="button"
+                >
+
+                    <img
+                        id="profileImage"
+                        class="profile-image"
+                        src=""
+                        alt="Profile"
+                        style="display: none;"
+                    >
+
+                    <span
+                        id="profileInitial"
+                        class="profile-initial"
+                    >
+                        M
+                    </span>
+
+                </button>
+
+
+                <!-- Profile Dropdown -->
+                <div
+                    class="profile-menu"
+                    id="profileMenu"
+                >
+
+                    <div class="profile-header">
+
+                        <div
+                            class="profile-large"
+                            id="profileLarge"
+                        >
+
+                            <img
+                                id="profileMenuImage"
+                                class="profile-image"
+                                src=""
+                                alt="Profile"
+                                style="display: none;"
+                            >
+
+                            <span id="profileMenuInitial">
+                                M
+                            </span>
+
+                        </div>
+
+
+                        <div class="profile-details">
+
+                            <strong id="profileName">
+                                Manav
+                            </strong>
+
+                            <span id="profileEmail">
+                                manav@trustetl.demo
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="menu-divider"></div>
+
+
+                    <button
+                        class="profile-item"
+                        id="changeProfile"
+                        type="button"
+                    >
+                        <span class="item-icon">👤</span>
+                        <span>Change profile</span>
+                    </button>
+
+
+                    <button
+                        class="profile-item"
+                        id="accountSettings"
+                        type="button"
+                    >
+                        <span class="item-icon">⚙️</span>
+                        <span>Account settings</span>
+                    </button>
+
+
+                    <button
+                        class="profile-item"
+                        id="helpSupport"
+                        type="button"
+                    >
+                        <span class="item-icon">❓</span>
+                        <span>Help &amp; support</span>
+                    </button>
+
+
+                    <div class="menu-divider"></div>
+
+
+                    <button
+                        class="profile-item logout"
+                        id="logoutButton"
+                        type="button"
+                    >
+                        <span class="item-icon">↪</span>
+                        <span>Logout</span>
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="file"
+                    id="profileImageInput"
+                    accept="image/*"
+                    hidden
+                >
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         DASHBOARD LAYOUT
+    ========================== -->
+    <div class="dashboard-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <p class="sidebar-label">
+                WORKSPACE
+            </p>
+
+            <a
+                class="sidebar-link"
+                href="dashboard.html"
+            >
+                Dashboard
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="datasets.html"
+            >
+                Datasets
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="profiling.html"
+            >
+                Profiling
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="pipeline.html"
+            >
+                Pipeline
+            </a>
+
+
+            <p class="sidebar-label">
+                AGENTS
+            </p>
+
+            <a
+                class="sidebar-link"
+                href="coder.html"
+            >
+                Coder Agent
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="critic.html"
+            >
+                Critic Agent
+            </a>
+
+            <a
+                class="sidebar-link active"
+                href="validator.html"
+            >
+                Validator
+            </a>
+
+
+            <p class="sidebar-label">
+                OUTPUT
+            </p>
+
+            <a
+                class="sidebar-link"
+                href="lineage.html"
+            >
+                Lineage
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="report.html"
+            >
+                Reports
+            </a>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+        <main class="dashboard-content">
+
+
+            <!-- Page Title -->
+            <div class="page-title">
+
+                <div>
+
+                    <p class="eyebrow">
+                        AGENT 03
+                    </p>
+
+                    <h1>
+                        Validator
+                    </h1>
+
+                </div>
+
+
+                <span class="badge success">
+                    PASS
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 VALIDATION SECTION
+            ========================== -->
+            <section class="validation-grid">
+
+
+                <!-- Validation Score -->
+                <div class="validation-score card">
+
+                    <span>
+                        Validation confidence
+                    </span>
+
+                    <strong>
+                        92%
+                    </strong>
+
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width: 92%;"
+                        ></div>
+
+                    </div>
+
+
+                    <p class="muted">
+                        Independent verification completed.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Validation Checks -->
+                <div class="card">
+
+                    <h3>
+                        Validation checks
+                    </h3>
+
+
+                    <!-- Schema Consistency -->
+                    <div class="check-row">
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Schema consistency
+                            </strong>
+
+                            <small>
+                                Passed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Missing Value Policy -->
+                    <div class="check-row">
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Missing-value policy
+                            </strong>
+
+                            <small>
+                                Passed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Duplicate Policy -->
+                    <div class="check-row">
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Duplicate policy
+                            </strong>
+
+                            <small>
+                                Passed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Value Range Checks -->
+                    <div class="check-row">
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Value-range checks
+                            </strong>
+
+                            <small>
+                                Passed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Output Row Integrity -->
+                    <div class="check-row">
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Output row integrity
+                            </strong>
+
+                            <small>
+                                Passed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 ACTION BUTTONS
+            ========================== -->
+            <div class="button-row">
+
+                <a
+                    href="lineage.html"
+                    class="button primary"
+                >
+                    View Lineage →
+                </a>
+
+
+                <a
+                    href="report.html"
+                    class="button secondary"
+                >
+                    Open Final Report
+                </a>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
