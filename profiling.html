@@ -1,16 +1,1346 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Profiling</title><link rel="stylesheet" href="css/style.css"></head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustETL | Profiling</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body>
-<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
-<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link active" href="profiling.html">Profiling</a><a class="sidebar-link" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
-<main class="dashboard-content">
-<div class="page-title"><div><p class="eyebrow">STEP 02</p><h1>Data Profiling</h1></div><a href="pipeline.html" class="button primary">Run Pipeline →</a></div>
-<div class="stats-grid"><div class="stat-card"><strong>12,842</strong><span>Rows</span></div><div class="stat-card"><strong>18</strong><span>Columns</span></div><div class="stat-card"><strong>421</strong><span>Missing values</span></div><div class="stat-card"><strong>73</strong><span>Duplicates</span></div></div>
-<section class="card"><div class="card-header"><span>Column Analysis</span><span class="badge success">PROFILE COMPLETE</span></div><div class="table-wrap"><table><thead><tr><th>Column</th><th>Type</th><th>Missing</th><th>Unique</th><th>Quality</th></tr></thead><tbody>
-<tr><td><strong>customer_id</strong></td><td>Integer</td><td>0</td><td>12,842</td><td><span class="badge success">Good</span></td></tr>
-<tr><td><strong>age</strong></td><td>Integer</td><td>18</td><td>74</td><td><span class="badge success">Good</span></td></tr>
-<tr><td><strong>email</strong></td><td>String</td><td>31</td><td>12,511</td><td><span class="badge warning">Review</span></td></tr>
-<tr><td><strong>purchase_amount</strong></td><td>Float</td><td>7</td><td>9,821</td><td><span class="badge success">Good</span></td></tr>
-</tbody></table></div></section>
-</main></div><script src="js/script.js"></script></body></html>
+
+    <div class="ai-background">
+
+    <div class="bg-grid"></div>
+
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+
+    <div class="data-particle particle-1"></div>
+    <div class="data-particle particle-2"></div>
+    <div class="data-particle particle-3"></div>
+    <div class="data-particle particle-4"></div>
+    <div class="data-particle particle-5"></div>
+    <div class="data-particle particle-6"></div>
+    <div class="data-particle particle-7"></div>
+    <div class="data-particle particle-8"></div>
+
+</div>
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="brand">
+            <div class="brand-logo">
+                <span>TE</span>
+            </div>
+            <span class="brand-name">
+                TrustETL
+            </span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="upload.html" class="nav-button">
+                Start Pipeline
+            </a>
+
+            <div class="profile-container">
+
+                <button
+                    class="profile-button"
+                    id="profileButton"
+                    aria-label="Open profile">
+                    M
+                </button>
+
+                <div
+                    class="profile-menu"
+                    id="profileMenu">
+
+                    <div class="profile-header">
+
+                        <div
+                            class="profile-large"
+                            id="profileLarge">
+                            M
+                        </div>
+
+                        <div class="profile-details">
+                            <h3 id="profileName">
+                                Manav
+                            </h3>
+                            <p id="profileEmail">
+                                user@trustetl.com
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="menu-divider"></div>
+
+                    <button
+                        class="profile-item"
+                        id="changeProfile">
+                        <span class="item-icon">
+                            👤
+                        </span>
+                        <span>
+                            Change profile
+                        </span>
+                    </button>
+
+                    <button
+                        class="profile-item"
+                        id="accountSettings">
+                        <span class="item-icon">
+                            ⚙
+                        </span>
+                        <span>
+                            Account settings
+                        </span>
+                    </button>
+
+                    <button
+                        class="profile-item"
+                        id="helpSupport">
+                        <span class="item-icon">
+                            ?
+                        </span>
+                        <span>
+                            Help &amp; support
+                        </span>
+                    </button>
+
+                    <div class="menu-divider"></div>
+
+                    <button
+                        class="profile-item logout"
+                        id="logoutButton">
+                        <span class="item-icon">
+                            ↪
+                        </span>
+                        <span>
+                            Logout
+                        </span>
+                    </button>
+
+                </div>
+
+                <input
+                    type="file"
+                    id="profileImageInput"
+                    accept="image/png,image/jpeg,image/jpg,image/webp"
+                    hidden>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         DASHBOARD LAYOUT
+    ========================== -->
+    <div class="dashboard-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <p class="sidebar-label">
+                WORKSPACE
+            </p>
+
+            <a
+                class="sidebar-link"
+                href="dashboard.html"
+            >
+                Dashboard
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="datasets.html"
+            >
+                Datasets
+            </a>
+
+            <a
+                class="sidebar-link active"
+                href="profiling.html"
+            >
+                Profiling
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="pipeline.html"
+            >
+                Pipeline
+            </a>
+
+
+            <p class="sidebar-label">
+                AGENTS
+            </p>
+
+            <a
+                class="sidebar-link"
+                href="coder.html"
+            >
+                Coder Agent
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="critic.html"
+            >
+                Critic Agent
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="validator.html"
+            >
+                Validator
+            </a>
+
+
+            <p class="sidebar-label">
+                OUTPUT
+            </p>
+
+            <a
+                class="sidebar-link"
+                href="lineage.html"
+            >
+                Lineage
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="report.html"
+            >
+                Reports
+            </a>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+        <main class="dashboard-content">
+
+
+            <!-- =========================
+                 PAGE HEADER
+            ========================== -->
+            <div class="page-title profiling-title">
+
+                <div>
+
+                    <p class="eyebrow">
+                        STEP 02 · DATA INTELLIGENCE
+                    </p>
+
+                    <h1>
+                        Data Profiling
+                    </h1>
+
+                    <p class="profiling-subtitle">
+                        TrustETL analyzed your dataset and identified
+                        structure, quality issues, and potential anomalies.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="pipeline.html"
+                    class="button primary"
+                >
+                    Run Pipeline →
+                </a>
+
+            </div>
+
+
+
+            <!-- =========================
+                 DATASET STATUS
+            ========================== -->
+            <div class="profiling-status">
+
+                <div class="profiling-status-left">
+
+                    <div class="profiling-file-icon">
+                        📄
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            customer_data.csv
+                        </strong>
+
+                        <span>
+                            Profiled successfully · 12,842 records
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profiling-status-right">
+
+                    <span class="live-dot"></span>
+
+                    <span>
+                        Analysis complete
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 QUALITY OVERVIEW
+            ========================== -->
+            <section class="profiling-quality-grid">
+
+
+                <!-- Quality Score -->
+                <div class="profiling-quality-card">
+
+                    <div class="quality-score-ring">
+
+                        <div class="quality-score-inner">
+
+                            <strong>
+                                92
+                            </strong>
+
+                            <span>
+                                /100
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quality-score-info">
+
+                        <p class="eyebrow">
+                            DATA QUALITY
+                        </p>
+
+                        <h2>
+                            Excellent
+                        </h2>
+
+                        <p>
+                            Dataset is mostly clean with a few
+                            fields requiring review.
+                        </p>
+
+                        <span class="badge success">
+                            LOW RISK
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Quality Metrics -->
+                <div class="profiling-metrics-card">
+
+                    <div class="profiling-card-heading">
+
+                        <div>
+
+                            <h3>
+                                Quality Metrics
+                            </h3>
+
+                            <p>
+                                Overall dataset health
+                            </p>
+
+                        </div>
+
+                        <span class="mini-status">
+                            LIVE
+                        </span>
+
+                    </div>
+
+
+                    <div class="quality-metric-row">
+
+                        <div class="quality-metric-label">
+
+                            <span>
+                                Completeness
+                            </span>
+
+                            <strong>
+                                96.7%
+                            </strong>
+
+                        </div>
+
+                        <div class="quality-meter">
+
+                            <div
+                                class="quality-meter-fill"
+                                style="width: 96.7%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quality-metric-row">
+
+                        <div class="quality-metric-label">
+
+                            <span>
+                                Uniqueness
+                            </span>
+
+                            <strong>
+                                99.4%
+                            </strong>
+
+                        </div>
+
+                        <div class="quality-meter">
+
+                            <div
+                                class="quality-meter-fill"
+                                style="width: 99.4%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quality-metric-row">
+
+                        <div class="quality-metric-label">
+
+                            <span>
+                                Schema Integrity
+                            </span>
+
+                            <strong>
+                                100%
+                            </strong>
+
+                        </div>
+
+                        <div class="quality-meter">
+
+                            <div
+                                class="quality-meter-fill"
+                                style="width: 100%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 DATASET STATISTICS
+            ========================== -->
+            <section class="profiling-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            DATASET OVERVIEW
+                        </p>
+
+                        <h2>
+                            Dataset Statistics
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid profiling-stats">
+
+                    <div class="stat-card profiling-stat-card">
+
+                        <div class="profiling-stat-icon">
+                            #
+                        </div>
+
+                        <strong>
+                            12,842
+                        </strong>
+
+                        <span>
+                            Total Rows
+                        </span>
+
+                        <small class="stat-positive">
+                            ✓ Loaded successfully
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card profiling-stat-card">
+
+                        <div class="profiling-stat-icon">
+                            ▦
+                        </div>
+
+                        <strong>
+                            18
+                        </strong>
+
+                        <span>
+                            Columns
+                        </span>
+
+                        <small class="stat-positive">
+                            ✓ Schema detected
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card profiling-stat-card">
+
+                        <div class="profiling-stat-icon warning-icon">
+                            !
+                        </div>
+
+                        <strong>
+                            421
+                        </strong>
+
+                        <span>
+                            Missing Values
+                        </span>
+
+                        <small class="stat-warning">
+                            ⚠ 3.3% of dataset
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card profiling-stat-card">
+
+                        <div class="profiling-stat-icon">
+                            ⧉
+                        </div>
+
+                        <strong>
+                            73
+                        </strong>
+
+                        <span>
+                            Duplicate Rows
+                        </span>
+
+                        <small class="stat-warning">
+                            ⚠ 0.6% of dataset
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 AI OBSERVATIONS
+            ========================== -->
+            <section class="ai-observation-card">
+
+                <div class="ai-observation-header">
+
+                    <div class="ai-agent-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <p class="eyebrow">
+                            AI PROFILER
+                        </p>
+
+                        <h3>
+                            Automated Observations
+                        </h3>
+
+                    </div>
+
+                    <span class="mini-status ai-active">
+                        ANALYSIS COMPLETE
+                    </span>
+
+                </div>
+
+
+                <div class="ai-observation-body">
+
+                    <div class="observation-item">
+
+                        <span class="observation-icon success-observation">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Strong primary key detected
+                            </strong>
+
+                            <p>
+                                <code>customer_id</code> contains
+                                12,842 unique values with no missing entries.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="observation-item">
+
+                        <span class="observation-icon warning-observation">
+                            !
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Email column requires review
+                            </strong>
+
+                            <p>
+                                31 missing values were detected.
+                                Validation is recommended before transformation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="observation-item">
+
+                        <span class="observation-icon info-observation">
+                            i
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Purchase amount appears stable
+                            </strong>
+
+                            <p>
+                                The numeric distribution contains no major
+                                structural anomalies in the profiled sample.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 MISSING VALUE ANALYSIS
+            ========================== -->
+            <section class="profiling-two-column">
+
+
+                <div class="card profiling-analysis-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span>
+                                Missing Value Analysis
+                            </span>
+
+                            <p class="card-header-description">
+                                Columns containing incomplete records
+                            </p>
+
+                        </div>
+
+                        <span class="badge warning">
+                            421 TOTAL
+                        </span>
+
+                    </div>
+
+
+                    <div class="missing-analysis">
+
+                        <div class="missing-row">
+
+                            <div class="missing-column-info">
+
+                                <strong>
+                                    email
+                                </strong>
+
+                                <span>
+                                    31 missing
+                                </span>
+
+                            </div>
+
+                            <div class="missing-bar">
+
+                                <div
+                                    class="missing-bar-fill"
+                                    style="width: 8%;"
+                                ></div>
+
+                            </div>
+
+                            <strong>
+                                0.24%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="missing-row">
+
+                            <div class="missing-column-info">
+
+                                <strong>
+                                    age
+                                </strong>
+
+                                <span>
+                                    18 missing
+                                </span>
+
+                            </div>
+
+                            <div class="missing-bar">
+
+                                <div
+                                    class="missing-bar-fill"
+                                    style="width: 5%;"
+                                ></div>
+
+                            </div>
+
+                            <strong>
+                                0.14%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="missing-row">
+
+                            <div class="missing-column-info">
+
+                                <strong>
+                                    purchase_amount
+                                </strong>
+
+                                <span>
+                                    7 missing
+                                </span>
+
+                            </div>
+
+                            <div class="missing-bar">
+
+                                <div
+                                    class="missing-bar-fill"
+                                    style="width: 2%;"
+                                ></div>
+
+                            </div>
+
+                            <strong>
+                                0.05%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="missing-row">
+
+                            <div class="missing-column-info">
+
+                                <strong>
+                                    Other columns
+                                </strong>
+
+                                <span>
+                                    365 missing
+                                </span>
+
+                            </div>
+
+                            <div class="missing-bar">
+
+                                <div
+                                    class="missing-bar-fill"
+                                    style="width: 70%;"
+                                ></div>
+
+                            </div>
+
+                            <strong>
+                                2.84%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Distribution Summary -->
+                <div class="card distribution-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span>
+                                Data Distribution
+                            </span>
+
+                            <p class="card-header-description">
+                                Numeric field summary
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution-content">
+
+                        <div class="distribution-stat">
+
+                            <span>
+                                Average purchase
+                            </span>
+
+                            <strong>
+                                ₹2,486
+                            </strong>
+
+                        </div>
+
+
+                        <div class="distribution-stat">
+
+                            <span>
+                                Minimum
+                            </span>
+
+                            <strong>
+                                ₹120
+                            </strong>
+
+                        </div>
+
+
+                        <div class="distribution-stat">
+
+                            <span>
+                                Maximum
+                            </span>
+
+                            <strong>
+                                ₹18,940
+                            </strong>
+
+                        </div>
+
+
+                        <div class="distribution-visual">
+
+                            <div class="distribution-bar bar-1"></div>
+                            <div class="distribution-bar bar-2"></div>
+                            <div class="distribution-bar bar-3"></div>
+                            <div class="distribution-bar bar-4"></div>
+                            <div class="distribution-bar bar-5"></div>
+                            <div class="distribution-bar bar-6"></div>
+                            <div class="distribution-bar bar-7"></div>
+                            <div class="distribution-bar bar-8"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 COLUMN ANALYSIS
+            ========================== -->
+            <section class="card profiling-column-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span>
+                            Column Analysis
+                        </span>
+
+                        <p class="card-header-description">
+                            Detailed schema and quality assessment
+                        </p>
+
+                    </div>
+
+                    <span class="badge success">
+                        PROFILE COMPLETE
+                    </span>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Column
+                                </th>
+
+                                <th>
+                                    Type
+                                </th>
+
+                                <th>
+                                    Missing
+                                </th>
+
+                                <th>
+                                    Unique
+                                </th>
+
+                                <th>
+                                    Distribution
+                                </th>
+
+                                <th>
+                                    Quality
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <strong>
+                                        customer_id
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <span class="type-badge">
+                                        Integer
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="table-good">
+                                        0
+                                    </span>
+                                </td>
+
+                                <td>
+                                    12,842
+                                </td>
+
+                                <td>
+                                    <div class="tiny-distribution">
+                                        <span style="height: 35%;"></span>
+                                        <span style="height: 50%;"></span>
+                                        <span style="height: 65%;"></span>
+                                        <span style="height: 80%;"></span>
+                                        <span style="height: 95%;"></span>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <span class="badge success">
+                                        Good
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>
+                                        age
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <span class="type-badge">
+                                        Integer
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="table-warning">
+                                        18
+                                    </span>
+                                </td>
+
+                                <td>
+                                    74
+                                </td>
+
+                                <td>
+                                    <div class="tiny-distribution">
+                                        <span style="height: 75%;"></span>
+                                        <span style="height: 90%;"></span>
+                                        <span style="height: 65%;"></span>
+                                        <span style="height: 50%;"></span>
+                                        <span style="height: 30%;"></span>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <span class="badge success">
+                                        Good
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>
+                                        email
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <span class="type-badge">
+                                        String
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="table-warning">
+                                        31
+                                    </span>
+                                </td>
+
+                                <td>
+                                    12,511
+                                </td>
+
+                                <td>
+                                    <div class="text-distribution">
+                                        TEXT
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <span class="badge warning">
+                                        Review
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>
+                                        purchase_amount
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <span class="type-badge">
+                                        Float
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="table-good">
+                                        7
+                                    </span>
+                                </td>
+
+                                <td>
+                                    9,821
+                                </td>
+
+                                <td>
+                                    <div class="tiny-distribution">
+                                        <span style="height: 40%;"></span>
+                                        <span style="height: 65%;"></span>
+                                        <span style="height: 90%;"></span>
+                                        <span style="height: 70%;"></span>
+                                        <span style="height: 45%;"></span>
+                                    </div>
+                                </td>
+
+                                <td>
+
+                                    <span class="badge success">
+                                        Good
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 DETECTED ISSUES
+            ========================== -->
+            <section class="card detected-issues-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span>
+                            Detected Issues
+                        </span>
+
+                        <p class="card-header-description">
+                            Potential problems identified during profiling
+                        </p>
+
+                    </div>
+
+                    <span class="badge warning">
+                        2 ISSUES
+                    </span>
+
+                </div>
+
+
+                <div class="detected-issues">
+
+                    <div class="detected-issue">
+
+                        <div class="issue-number">
+                            01
+                        </div>
+
+                        <div class="issue-content">
+
+                            <div class="issue-title">
+
+                                <strong>
+                                    Missing email values
+                                </strong>
+
+                                <span class="badge warning">
+                                    MEDIUM
+                                </span>
+
+                            </div>
+
+                            <p>
+                                31 records contain empty email fields.
+                                The Coder Agent should determine an appropriate
+                                handling strategy.
+                            </p>
+
+                            <span class="issue-location">
+                                Column: email
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="detected-issue">
+
+                        <div class="issue-number">
+                            02
+                        </div>
+
+                        <div class="issue-content">
+
+                            <div class="issue-title">
+
+                                <strong>
+                                    Duplicate records
+                                </strong>
+
+                                <span class="badge warning">
+                                    LOW
+                                </span>
+
+                            </div>
+
+                            <p>
+                                73 duplicate rows were detected.
+                                Duplicate handling should be reviewed before
+                                final transformation.
+                            </p>
+
+                            <span class="issue-location">
+                                Dataset level
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 NEXT STEP
+            ========================== -->
+            <div class="profiling-next-step">
+
+                <div>
+
+                    <span class="next-step-icon">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Profiling complete
+                        </strong>
+
+                        <p>
+                            TrustETL is ready to generate a transformation strategy.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="coder.html"
+                    class="button primary"
+                >
+                    Continue to Coder Agent →
+                </a>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
