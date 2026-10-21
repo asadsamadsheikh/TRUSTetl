@@ -1,14 +1,516 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Critic Agent</title><link rel="stylesheet" href="css/style.css"></head>
-<body>
-<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
-<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link" href="profiling.html">Profiling</a><a class="sidebar-link" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link" href="coder.html">Coder Agent</a><a class="sidebar-link active" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
-<main class="dashboard-content">
-<div class="page-title"><div><p class="eyebrow">AGENT 02</p><h1>Critic Agent</h1></div><span class="badge success">REVIEWED</span></div>
-<section class="card"><div class="card-header"><span>Adversarial Review</span><span class="badge warning">2 ISSUES FOUND</span></div>
-<div class="issue high"><div><span class="badge danger">HIGH</span><h3>Duplicate removal may delete valid repeated transactions</h3><p>The critic recommends checking a business key before treating every identical row as a duplicate.</p></div></div>
-<div class="issue medium"><div><span class="badge warning">MEDIUM</span><h3>Email normalization should preserve invalid-address evidence</h3><p>Lowercasing and trimming are safe, but malformed values should be flagged rather than silently discarded.</p></div></div>
-</section>
-<section class="card"><div class="card-header"><span>Decision</span><span class="badge success">PASS AFTER REVIEW</span></div><p>The proposed changes address the critic's concerns. The workflow can continue to independent validation.</p><div class="button-row"><a href="coder.html" class="button secondary">Revise Code</a><a href="validator.html" class="button primary">Approve & Validate →</a></div></section>
-</main></div><script src="js/script.js"></script></body></html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustETL | Critic Agent</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-critic">
+
+    <!-- AI BACKGROUND -->
+    <div class="ai-background">
+        <div class="bg-grid"></div>
+
+        <div class="bg-orb orb-one"></div>
+        <div class="bg-orb orb-two"></div>
+
+        <div class="data-particle particle-1"></div>
+        <div class="data-particle particle-2"></div>
+        <div class="data-particle particle-3"></div>
+        <div class="data-particle particle-4"></div>
+        <div class="data-particle particle-5"></div>
+        <div class="data-particle particle-6"></div>
+        <div class="data-particle particle-7"></div>
+        <div class="data-particle particle-8"></div>
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header class="navbar">
+
+        <!-- TrustETL Logo -->
+        <a href="index.html" class="brand">
+            <div class="brand-logo">
+                <span>TE</span>
+            </div>
+
+            <span class="brand-name">
+                Trust<span>ETL</span>
+            </span>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="about.html">About</a>
+
+            <a href="upload.html" class="nav-button">
+                Start Pipeline
+            </a>
+
+            <!-- PROFILE -->
+            <div class="profile-container">
+
+                <button
+                    class="profile-button"
+                    id="profileButton"
+                    type="button"
+                    aria-label="Open profile menu"
+                >
+                    <img
+                        id="profileImage"
+                        class="profile-image"
+                        src=""
+                        alt="Profile"
+                        style="display: none;"
+                    >
+
+                    <span
+                        id="profileInitial"
+                        class="profile-initial"
+                    >
+                        M
+                    </span>
+                </button>
+
+                <!-- Profile Dropdown -->
+                <div
+                    class="profile-menu"
+                    id="profileMenu"
+                >
+
+                    <div class="profile-header">
+
+                        <div
+                            class="profile-large"
+                            id="profileLarge"
+                        >
+                            <img
+                                id="profileMenuImage"
+                                class="profile-image"
+                                src=""
+                                alt="Profile"
+                                style="display: none;"
+                            >
+
+                            <span id="profileMenuInitial">
+                                M
+                            </span>
+                        </div>
+
+                        <div class="profile-details">
+
+                            <strong id="profileName">
+                                Manav
+                            </strong>
+
+                            <span id="profileEmail">
+                                manav@trustetl.demo
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="menu-divider"></div>
+
+                    <button
+                        class="profile-item"
+                        id="changeProfile"
+                        type="button"
+                    >
+                        <span class="item-icon">👤</span>
+                        <span>Change profile</span>
+                    </button>
+
+                    <button
+                        class="profile-item"
+                        id="accountSettings"
+                        type="button"
+                    >
+                        <span class="item-icon">⚙️</span>
+                        <span>Account settings</span>
+                    </button>
+
+                    <button
+                        class="profile-item"
+                        id="helpSupport"
+                        type="button"
+                    >
+                        <span class="item-icon">❓</span>
+                        <span>Help &amp; support</span>
+                    </button>
+
+                    <div class="menu-divider"></div>
+
+                    <button
+                        class="profile-item logout"
+                        id="logoutButton"
+                        type="button"
+                    >
+                        <span class="item-icon">↪</span>
+                        <span>Logout</span>
+                    </button>
+
+                </div>
+
+                <input
+                    type="file"
+                    id="profileImageInput"
+                    accept="image/*"
+                    hidden
+                >
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- DASHBOARD LAYOUT -->
+    <div class="dashboard-layout">
+
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <p class="sidebar-label">
+                WORKSPACE
+            </p>
+
+
+            <a
+                class="sidebar-link"
+                href="dashboard.html"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                class="sidebar-link"
+                href="datasets.html"
+            >
+                Datasets
+            </a>
+
+
+            <a
+                class="sidebar-link"
+                href="profiling.html"
+            >
+                Profiling
+            </a>
+
+
+            <a
+                class="sidebar-link"
+                href="pipeline.html"
+            >
+                Pipeline
+            </a>
+
+
+            <p class="sidebar-label">
+                AGENTS
+            </p>
+
+
+            <a
+                class="sidebar-link"
+                href="coder.html"
+            >
+                Coder Agent
+            </a>
+
+
+            <a
+                class="sidebar-link active"
+                href="critic.html"
+            >
+                Critic Agent
+            </a>
+
+
+            <a
+                class="sidebar-link"
+                href="validator.html"
+            >
+                Validator
+            </a>
+
+
+            <p class="sidebar-label">
+                OUTPUT
+            </p>
+
+
+            <a
+                class="sidebar-link"
+                href="lineage.html"
+            >
+                Lineage
+            </a>
+
+
+            <a
+                class="sidebar-link"
+                href="report.html"
+            >
+                Reports
+            </a>
+
+        </aside>
+
+
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-content">
+
+
+            <!-- PAGE HEADER -->
+            <div class="page-title">
+
+                <div>
+
+                    <p class="eyebrow">
+                        AGENT 02
+                    </p>
+
+                    <h1>
+                        Critic Agent
+                    </h1>
+
+                    <p class="critic-subtitle">
+                        Reviews the generated transformation code for
+                        possible risks and data loss.
+                    </p>
+
+                </div>
+
+
+                <span class="badge success">
+                    REVIEWED
+                </span>
+
+            </div>
+
+
+
+            <!-- SUMMARY -->
+            <section class="critic-summary">
+
+                <div class="critic-summary-item">
+
+                    <strong>
+                        2
+                    </strong>
+
+                    <span>
+                        Issues Found
+                    </span>
+
+                </div>
+
+
+                <div class="critic-summary-item">
+
+                    <strong>
+                        1
+                    </strong>
+
+                    <span>
+                        Revision
+                    </span>
+
+                </div>
+
+
+                <div class="critic-summary-item">
+
+                    <strong>
+                        96%
+                    </strong>
+
+                    <span>
+                        Confidence
+                    </span>
+
+                </div>
+
+
+                <div class="critic-summary-status">
+
+                    <span class="critic-dot"></span>
+
+                    Review Complete
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ADVERSARIAL REVIEW -->
+            <section class="card critic-review">
+
+                <div class="card-header">
+
+                    <span>
+                        Adversarial Review
+                    </span>
+
+                    <span class="badge warning">
+                        2 ISSUES
+                    </span>
+
+                </div>
+
+
+
+                <!-- ISSUE 1 -->
+                <div class="critic-simple-issue high">
+
+                    <div class="critic-issue-icon">
+                        !
+                    </div>
+
+
+                    <div>
+
+                        <span class="badge danger">
+                            HIGH
+                        </span>
+
+                        <h3>
+                            Duplicate removal may delete valid transactions
+                        </h3>
+
+                        <p>
+                            The critic recommends using a business key
+                            before removing duplicate rows.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ISSUE 2 -->
+                <div class="critic-simple-issue medium">
+
+                    <div class="critic-issue-icon">
+                        !
+                    </div>
+
+
+                    <div>
+
+                        <span class="badge warning">
+                            MEDIUM
+                        </span>
+
+                        <h3>
+                            Invalid emails should be flagged
+                        </h3>
+
+                        <p>
+                            Malformed email values should be preserved
+                            for audit instead of silently removed.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- FINAL DECISION -->
+            <section class="critic-decision">
+
+                <div class="critic-decision-icon">
+                    ✓
+                </div>
+
+
+                <div class="critic-decision-content">
+
+                    <div class="critic-decision-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                FINAL DECISION
+                            </p>
+
+                            <h2>
+                                Pass After Review
+                            </h2>
+
+                        </div>
+
+
+                        <span class="badge success">
+                            APPROVED
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        The identified issues were addressed.
+                        The revised transformation is ready for validation.
+                    </p>
+
+
+                    <div class="button-row">
+
+                        <a
+                            href="coder.html"
+                            class="button secondary"
+                        >
+                            ← View Coder
+                        </a>
+
+
+                        <a
+                            href="validator.html"
+                            class="button primary"
+                        >
+                            Approve &amp; Validate →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
