@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/login.css">
+ 
+    
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TrustETL | Login</title>
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="login-page">
+
+    <div class="animated-grid"></div>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- Animated TrustETL Background -->
+<div class="etl-animation">
+
+    <div class="etl-node node-data">
+        <span>📄</span>
+        <small>RAW DATA</small>
+    </div>
+
+    <div class="etl-line line-1">
+        <i></i><i></i><i></i>
+    </div>
+
+    <div class="etl-node node-profile">
+        <span>◉</span>
+        <small>PROFILER</small>
+    </div>
+
+    <div class="etl-line line-2">
+        <i></i><i></i><i></i>
+    </div>
+
+    <div class="etl-node node-coder">
+        <span>⌘</span>
+        <small>CODER AI</small>
+    </div>
+
+    <div class="etl-line line-3">
+        <i></i><i></i><i></i>
+    </div>
+
+    <div class="etl-node node-critic">
+        <span>⚡</span>
+        <small>CRITIC AI</small>
+    </div>
+
+    <div class="etl-line line-4">
+        <i></i><i></i><i></i>
+    </div>
+
+    <div class="etl-node node-validator">
+        <span>✓</span>
+        <small>VALIDATOR</small>
+    </div>
+
+    <div class="etl-line line-5">
+        <i></i><i></i><i></i>
+    </div>
+
+    <div class="etl-node node-clean">
+        <span>✓</span>
+        <small>CLEAN DATA</small>
+    </div>
+
+    <!-- Critic revision loop -->
+    <div class="revision-loop">
+        <span>↻ SELF-CRITIQUE</span>
+    </div>
+
+</div>
+
+        <!-- Background effects -->
+
+        <div class="background-glow glow-one"></div>
+        <div class="background-glow glow-two"></div>
+
+
+        <!-- Login Card -->
+
+        <section class="login-card">
+
+
+            <!-- Brand -->
+
+            <div class="login-brand">
+                Trust<span>ETL</span>
+            </div>
+
+
+            <!-- Heading -->
+
+            <div class="login-heading">
+
+                <h1>
+                    Welcome back
+                </h1>
+
+                <p>
+                    Login to continue to your TrustETL workspace.
+                </p>
+
+            </div>
+
+
+            <!-- Login Form -->
+
+            <form id="loginForm" novalidate>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        maxlength="100"
+                        required
+                    >
+
+                    <small
+                        class="input-error"
+                        id="emailError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <div class="password-label">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a
+                            href="#"
+                            id="forgotPassword"
+                        >
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            minlength="8"
+                            maxlength="64"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="showPassword"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+
+                    <small
+                        class="input-error"
+                        id="passwordError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- REMEMBER ME -->
+
+                <div class="form-options">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- GENERAL MESSAGE -->
+
+                <div
+                    class="form-message"
+                    id="formMessage"
+                ></div>
+
+
+
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="loginButton"
+                >
+
+                    <span id="loginButtonText">
+                        Login
+                    </span>
+
+                </button>
+
+            </form>
+
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+
+                <span>
+                    OR
+                </span>
+
+            </div>
+
+
+
+            <!-- DEMO LOGIN -->
+
+            <button
+                class="demo-button"
+                id="demoLogin"
+                type="button"
+            >
+
+                Continue with demo account
+
+            </button>
+
+
+
+            <!-- SIGN UP -->
+
+            <p class="signup-text">
+
+                Don't have an account?
+
+                <a
+                    href="#"
+                    id="createAccount"
+                >
+                    Create account
+                </a>
+
+            </p>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <p class="login-footer">
+
+            TrustETL — Autonomous ETL with Adversarial Self-Critique
+
+        </p>
+
+    </main>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
