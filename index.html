@@ -1,87 +1,476 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>TrustETL | Home</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <nav class="navbar">
-        <a class="brand" href="index.html">Trust<span>ETL</span></a>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="about.html">About</a>
-            <a href="upload.html" class="nav-button">Start Pipeline</a>
-        </div>
-    </nav>
 
-    <main class="container">
+    
+
+   <div class="ai-background">
+
+    <div class="bg-grid"></div>
+
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+
+    <div class="data-particle particle-1"></div>
+    <div class="data-particle particle-2"></div>
+    <div class="data-particle particle-3"></div>
+    <div class="data-particle particle-4"></div>
+    <div class="data-particle particle-5"></div>
+    <div class="data-particle particle-6"></div>
+    <div class="data-particle particle-7"></div>
+    <div class="data-particle particle-8"></div>
+
+</div>
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <header class="navbar">
+
+        <!-- TRUSTETL LOGO -->
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-logo">
+                <span>TE</span>
+            </div>
+
+            <span class="brand-name">
+                TrustETL
+            </span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-links">
+
+            <a href="index.html" class="active">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="upload.html" class="nav-button">
+                Start Pipeline
+            </a>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile-container">
+
+                <button
+                    class="profile-button"
+                    id="profileButton"
+                    aria-label="Open profile">
+
+                    M
+
+                </button>
+
+
+                <!-- PROFILE DROPDOWN -->
+
+                <div
+                    class="profile-menu"
+                    id="profileMenu">
+
+                    <div class="profile-header">
+
+                        <div
+                            class="profile-large"
+                            id="profileLarge">
+
+                            M
+
+                        </div>
+
+
+                        <div class="profile-details">
+
+                            <h3 id="profileName">
+                                Manav
+                            </h3>
+
+                            <p id="profileEmail">
+                                user@trustetl.com
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="menu-divider"></div>
+
+
+                    <!-- CHANGE PROFILE -->
+
+                    <button
+                        class="profile-item"
+                        id="changeProfile">
+
+                        <span class="item-icon">
+                            👤
+                        </span>
+
+                        <span>
+                            Change profile
+                        </span>
+
+                    </button>
+
+
+                    <!-- ACCOUNT SETTINGS -->
+
+                    <button
+                        class="profile-item"
+                        id="accountSettings">
+
+                        <span class="item-icon">
+                            ⚙
+                        </span>
+
+                        <span>
+                            Account settings
+                        </span>
+
+                    </button>
+
+
+                    <!-- HELP -->
+
+                    <button
+                        class="profile-item"
+                        id="helpSupport">
+
+                        <span class="item-icon">
+                            ?
+                        </span>
+
+                        <span>
+                            Help & support
+                        </span>
+
+                    </button>
+
+
+                    <div class="menu-divider"></div>
+
+
+                    <!-- LOGOUT -->
+
+                    <button
+                        class="profile-item logout"
+                        id="logoutButton">
+
+                        <span class="item-icon">
+                            ↪
+                        </span>
+
+                        <span>
+                            Logout
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <!-- PROFILE IMAGE INPUT -->
+
+                <input
+                    type="file"
+                    id="profileImageInput"
+                    accept="image/png,image/jpeg,image/jpg,image/webp"
+                    hidden>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main class="main-container">
+
+
+        <!-- HERO -->
+
         <section class="hero">
+
             <div class="hero-content">
-                <p class="eyebrow">AUTONOMOUS ETL WITH ADVERSARIAL SELF-CRITIQUE</p>
-                <h1>Transform data.<br><span>Trust the result.</span></h1>
-                <p class="hero-text">
-                    TrustETL uses a Coder Agent, an independent Critic Agent,
-                    and a Validator Agent to make data transformation more reliable.
+
+                <p class="eyebrow">
+                    AUTONOMOUS ETL WITH ADVERSARIAL SELF-CRITIQUE
                 </p>
-                <div class="button-row">
-                    <a href="upload.html" class="button primary">Upload Dataset</a>
-                    <a href="dashboard.html" class="button secondary">View Dashboard</a>
+
+
+                <h1>
+
+                    Transform data.
+                    <br>
+
+                    <span>
+                        Trust the result.
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    TrustETL uses a Coder Agent,
+                    an independent Critic Agent,
+                    and a Validator Agent to make
+                    data transformation more reliable.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="upload.html"
+                        class="primary-button">
+
+                        Upload Dataset
+
+                    </a>
+
+
+                    <a
+                        href="dashboard.html"
+                        class="secondary-button">
+
+                        View Dashboard
+
+                    </a>
+
                 </div>
+
             </div>
 
-            <div class="pipeline-preview card">
-                <div class="card-header">
-                    <span>Pipeline Preview</span>
-                    <span class="status-dot">LIVE</span>
+
+            <!-- PIPELINE -->
+
+            <div class="pipeline-card">
+
+                <div class="pipeline-header">
+
+                    <h2>
+                        Pipeline Preview
+                    </h2>
+
+                    <span class="live-status">
+                        LIVE
+                    </span>
+
                 </div>
+
+
                 <div class="pipeline-step">
-                    <span class="step-number">01</span>
-                    <div><strong>Profile</strong><small>Inspect dataset quality</small></div>
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>
+                            Profile
+                        </h3>
+
+                        <p>
+                            Inspect dataset quality
+                        </p>
+
+                    </div>
+
                 </div>
+
+
                 <div class="pipeline-step">
-                    <span class="step-number">02</span>
-                    <div><strong>Coder Agent</strong><small>Generate ETL transformation</small></div>
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>
+                            Coder Agent
+                        </h3>
+
+                        <p>
+                            Generate ETL transformation
+                        </p>
+
+                    </div>
+
                 </div>
+
+
                 <div class="pipeline-step">
-                    <span class="step-number">03</span>
-                    <div><strong>Critic Agent</strong><small>Attack the proposed solution</small></div>
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>
+                            Critic Agent
+                        </h3>
+
+                        <p>
+                            Attack the proposed solution
+                        </p>
+
+                    </div>
+
                 </div>
+
+
                 <div class="pipeline-step">
-                    <span class="step-number">04</span>
-                    <div><strong>Validator</strong><small>Independently verify output</small></div>
+
+                    <div class="step-number">
+                        04
+                    </div>
+
+                    <div class="step-content">
+
+                        <h3>
+                            Validator
+                        </h3>
+
+                        <p>
+                            Independently verify output
+                        </p>
+
+                    </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <section class="section">
+
+        <!-- FEATURES -->
+
+        <section class="features-section">
+
             <div class="section-heading">
-                <p class="eyebrow">WHY TRUSTETL</p>
-                <h2>ETL that challenges its own decisions.</h2>
+
+                <p class="eyebrow">
+                    WHY TRUSTETL
+                </p>
+
+                <h2>
+                    ETL that challenges its own decisions.
+                </h2>
+
             </div>
+
+
             <div class="feature-grid">
-                <article class="card feature-card">
-                    <div class="icon">01</div>
-                    <h3>Generate</h3>
-                    <p>The Coder Agent creates a transformation plan and executable ETL logic.</p>
-                </article>
-                <article class="card feature-card">
-                    <div class="icon">02</div>
-                    <h3>Challenge</h3>
-                    <p>The Critic Agent searches for missing values, bad assumptions, and statistical errors.</p>
-                </article>
-                <article class="card feature-card">
-                    <div class="icon">03</div>
-                    <h3>Verify</h3>
-                    <p>The Validator checks the final result independently before it is accepted.</p>
-                </article>
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Generate
+                    </h3>
+
+                    <p>
+                        The Coder Agent creates a transformation
+                        plan and executable ETL logic.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Challenge
+                    </h3>
+
+                    <p>
+                        The Critic Agent searches for missing
+                        values, bad assumptions, and statistical errors.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Verify
+                    </h3>
+
+                    <p>
+                        The Validator checks the final result
+                        independently before it is accepted.
+                    </p>
+
+                </div>
+
             </div>
+
         </section>
+
     </main>
 
-    <footer class="footer">TrustETL — Autonomous ETL Agent with Adversarial Self-Critique</footer>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        TrustETL — Autonomous ETL Agent with Adversarial Self-Critique
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
     <script src="js/script.js"></script>
+
 </body>
+
 </html>
