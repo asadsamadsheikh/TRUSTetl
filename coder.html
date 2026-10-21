@@ -1,28 +1,853 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TrustETL | Coder Agent</title><link rel="stylesheet" href="css/style.css"></head>
-<body>
-<nav class="navbar"><a class="brand" href="index.html">Trust<span>ETL</span></a><div class="nav-links"><a href="index.html">Home</a><a href="dashboard.html" class="active">Dashboard</a><a href="about.html">About</a><a href="upload.html" class="nav-button">Start Pipeline</a></div></nav>
-<div class="dashboard-layout"><aside class="sidebar"><p class="sidebar-label">WORKSPACE</p><a class="sidebar-link" href="dashboard.html">Dashboard</a><a class="sidebar-link" href="datasets.html">Datasets</a><a class="sidebar-link" href="profiling.html">Profiling</a><a class="sidebar-link" href="pipeline.html">Pipeline</a><p class="sidebar-label">AGENTS</p><a class="sidebar-link active" href="coder.html">Coder Agent</a><a class="sidebar-link" href="critic.html">Critic Agent</a><a class="sidebar-link" href="validator.html">Validator</a><p class="sidebar-label">OUTPUT</p><a class="sidebar-link" href="lineage.html">Lineage</a><a class="sidebar-link" href="report.html">Reports</a></aside>
-<main class="dashboard-content">
-<div class="page-title"><div><p class="eyebrow">AGENT 01</p><h1>Coder Agent</h1></div><span class="badge success">COMPLETED</span></div>
-<section class="card"><div class="card-header"><span>Generated Transformation</span><span class="muted">Python / pandas</span></div>
-<pre class="code-block"><code># Load the source dataset
-df = read_dataset("customer_data.csv")
 
-# Remove duplicate records
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustETL | Coder Agent</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-coder">
+
+    <!-- =========================
+         AI BACKGROUND
+    ========================== -->
+
+    <div class="ai-background">
+
+        <div class="bg-grid"></div>
+
+        <div class="bg-orb orb-one"></div>
+        <div class="bg-orb orb-two"></div>
+
+        <div class="data-particle particle-1"></div>
+        <div class="data-particle particle-2"></div>
+        <div class="data-particle particle-3"></div>
+        <div class="data-particle particle-4"></div>
+        <div class="data-particle particle-5"></div>
+        <div class="data-particle particle-6"></div>
+        <div class="data-particle particle-7"></div>
+        <div class="data-particle particle-8"></div>
+
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="brand">
+            <div class="brand-logo">
+                <span>TE</span>
+            </div>
+            <span class="brand-name">
+                Trust<span>ETL</span>
+            </span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html">About</a>
+            <a href="upload.html" class="nav-button">Start Pipeline</a>
+
+            <div class="profile-container">
+                <button class="profile-button" id="profileButton" type="button" aria-label="Open profile menu">
+                    <span id="profileInitial" class="profile-initial">M</span>
+                    <img id="profileImage" class="profile-image" src="" alt="Profile" style="display: none;">
+                </button>
+
+                <div class="profile-menu" id="profileMenu">
+                    <div class="profile-header">
+                        <div class="profile-large" id="profileLarge">
+                            <img id="profileMenuImage" class="profile-image" src="" alt="Profile" style="display: none;">
+                            <span id="profileMenuInitial">M</span>
+                        </div>
+
+                        <div class="profile-details">
+                            <strong id="profileName">Manav</strong>
+                            <small id="profileEmail">manav@trustetl.demo</small>
+                        </div>
+                    </div>
+
+                    <div class="menu-divider"></div>
+
+                    <button class="profile-item" id="changeProfile" type="button">
+                        <span class="item-icon">👤</span>
+                        <span>Change profile</span>
+                    </button>
+
+                    <button class="profile-item" id="accountSettings" type="button">
+                        <span class="item-icon">⚙️</span>
+                        <span>Account settings</span>
+                    </button>
+
+                    <button class="profile-item" id="helpSupport" type="button">
+                        <span class="item-icon">❓</span>
+                        <span>Help &amp; support</span>
+                    </button>
+
+                    <div class="menu-divider"></div>
+
+                    <button class="profile-item logout" id="logoutButton" type="button">
+                        <span class="item-icon">↪</span>
+                        <span>Logout</span>
+                    </button>
+                </div>
+
+                <input type="file" id="profileImageInput" accept="image/*" hidden>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         DASHBOARD LAYOUT
+    ========================== -->
+
+    <div class="dashboard-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <p class="sidebar-label">
+                WORKSPACE
+            </p>
+
+            <a
+                class="sidebar-link"
+                href="dashboard.html"
+            >
+                Dashboard
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="datasets.html"
+            >
+                Datasets
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="profiling.html"
+            >
+                Profiling
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="pipeline.html"
+            >
+                Pipeline
+            </a>
+
+
+            <p class="sidebar-label">
+                AGENTS
+            </p>
+
+            <a
+                class="sidebar-link active"
+                href="coder.html"
+            >
+                Coder Agent
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="critic.html"
+            >
+                Critic Agent
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="validator.html"
+            >
+                Validator
+            </a>
+
+
+            <p class="sidebar-label">
+                OUTPUT
+            </p>
+
+            <a
+                class="sidebar-link"
+                href="lineage.html"
+            >
+                Lineage
+            </a>
+
+            <a
+                class="sidebar-link"
+                href="report.html"
+            >
+                Reports
+            </a>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="dashboard-content coder-page">
+
+
+            <!-- =========================
+                 PAGE HEADER
+            ========================== -->
+
+            <div class="page-title coder-title">
+
+                <div>
+
+                    <p class="eyebrow">
+                        AGENT 01 · AUTONOMOUS CODING
+                    </p>
+
+                    <h1>
+                        Coder Agent
+                    </h1>
+
+                    <p class="coder-subtitle">
+                        The AI analyzes profiling results and generates
+                        a transformation strategy for the dataset.
+                    </p>
+
+                </div>
+
+
+                <div class="coder-agent-status">
+
+                    <span class="live-dot"></span>
+
+                    <span>
+                        Agent completed
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 AGENT OVERVIEW
+            ========================== -->
+
+            <section class="coder-overview">
+
+                <div class="coder-agent-card">
+
+                    <div class="coder-avatar">
+                        &lt;/&gt;
+                    </div>
+
+
+                    <div class="coder-agent-info">
+
+                        <div class="coder-agent-name">
+
+                            <strong>
+                                TrustETL Coder Agent
+                            </strong>
+
+                            <span class="badge success">
+                                COMPLETED
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Generated a pandas-based transformation plan
+                            from the profiling results.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="coder-metrics">
+
+                    <div class="coder-metric">
+
+                        <strong>
+                            5
+                        </strong>
+
+                        <span>
+                            Transformations
+                        </span>
+
+                    </div>
+
+
+                    <div class="coder-metric">
+
+                        <strong>
+                            2.4s
+                        </strong>
+
+                        <span>
+                            Generation time
+                        </span>
+
+                    </div>
+
+
+                    <div class="coder-metric">
+
+                        <strong>
+                            94%
+                        </strong>
+
+                        <span>
+                            Confidence
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 TRANSFORMATION PLAN
+            ========================== -->
+
+            <section class="card transformation-plan">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span>
+                            Transformation Plan
+                        </span>
+
+                        <p class="card-header-description">
+                            Decisions generated from the profiling stage
+                        </p>
+
+                    </div>
+
+                    <span class="mini-status">
+                        5 ACTIONS
+                    </span>
+
+                </div>
+
+
+                <div class="transformation-grid">
+
+
+                    <!-- 01 -->
+
+                    <div class="transformation-item">
+
+                        <span class="transformation-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Remove duplicates
+                            </strong>
+
+                            <p>
+                                Remove 73 duplicate records.
+                            </p>
+
+                        </div>
+
+                        <span class="transformation-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <!-- 02 -->
+
+                    <div class="transformation-item">
+
+                        <span class="transformation-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Handle missing age
+                            </strong>
+
+                            <p>
+                                Replace missing values using median.
+                            </p>
+
+                        </div>
+
+                        <span class="transformation-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <!-- 03 -->
+
+                    <div class="transformation-item">
+
+                        <span class="transformation-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Normalize email
+                            </strong>
+
+                            <p>
+                                Trim whitespace and convert to lowercase.
+                            </p>
+
+                        </div>
+
+                        <span class="transformation-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <!-- 04 -->
+
+                    <div class="transformation-item">
+
+                        <span class="transformation-number">
+                            04
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Filter invalid amounts
+                            </strong>
+
+                            <p>
+                                Remove negative purchase values.
+                            </p>
+
+                        </div>
+
+                        <span class="transformation-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <!-- 05 -->
+
+                    <div class="transformation-item">
+
+                        <span class="transformation-number">
+                            05
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Export verified dataset
+                            </strong>
+
+                            <p>
+                                Save transformed data for validation.
+                            </p>
+
+                        </div>
+
+                        <span class="transformation-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 GENERATED CODE
+            ========================== -->
+
+            <section class="card coder-code-card">
+
+                <div class="coder-code-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            GENERATED CODE
+                        </p>
+
+                        <h2>
+                            Transformation Script
+                        </h2>
+
+                    </div>
+
+
+                    <div class="code-status">
+
+                        <span class="code-language">
+                            PYTHON / PANDAS
+                        </span>
+
+                        <span class="code-safe">
+                            ✓ SAFE TO REVIEW
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="code-editor">
+
+                    <div class="code-editor-top">
+
+                        <div class="code-dots">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <span>
+                            transform_customer_data.py
+                        </span>
+
+                        <span class="code-readonly">
+                            READ ONLY
+                        </span>
+
+                    </div>
+
+
+                    <pre class="code-block coder-code"><code><span class="code-comment"># Load the source dataset</span>
+df = read_dataset(<span class="code-string">"customer_data.csv"</span>)
+
+<span class="code-comment"># Remove duplicate records</span>
 df = df.drop_duplicates()
 
-# Fill missing age values with the median
-df["age"] = df["age"].fillna(df["age"].median())
+<span class="code-comment"># Fill missing age values with the median</span>
+df[<span class="code-string">"age"</span>] = df[<span class="code-string">"age"</span>].fillna(df[<span class="code-string">"age"</span>].median())
 
-# Normalize email text
-df["email"] = df["email"].str.strip().str.lower()
+<span class="code-comment"># Normalize email text</span>
+df[<span class="code-string">"email"</span>] = df[<span class="code-string">"email"</span>].str.strip().str.lower()
 
-# Remove invalid purchase amounts
-df = df[df["purchase_amount"] >= 0]
+<span class="code-comment"># Remove invalid purchase amounts</span>
+df = df[df[<span class="code-string">"purchase_amount"</span>] &gt;= 0]
 
-# Save the transformed dataset
-df.to_csv("verified_customer_data.csv", index=False)</code></pre></section>
-<section class="two-column"><div class="card"><h3>Reasoning</h3><p>Duplicate records are removed, numeric missing values are handled, email strings are normalized, and invalid negative amounts are filtered.</p></div><div class="card"><h3>Next Step</h3><p>The Critic Agent will independently examine these decisions and attempt to find weaknesses.</p><a href="critic.html" class="button primary">Send to Critic →</a></div></section>
-</main></div><script src="js/script.js"></script></body></html>
+<span class="code-comment"># Save the transformed dataset</span>
+df.to_csv(<span class="code-string">"verified_customer_data.csv"</span>, index=False)</code></pre>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 REASONING + SAFETY
+            ========================== -->
+
+            <section class="coder-analysis-grid">
+
+
+                <!-- AI REASONING -->
+
+                <div class="card coder-reasoning-card">
+
+                    <div class="coder-section-heading">
+
+                        <div class="coder-small-icon">
+                            🧠
+                        </div>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                AI REASONING
+                            </p>
+
+                            <h3>
+                                Why these transformations?
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="reasoning-list">
+
+                        <div class="reasoning-item">
+
+                            <span>
+                                01
+                            </span>
+
+                            <p>
+                                Duplicate records are removed because
+                                profiling detected 73 duplicate rows.
+                            </p>
+
+                        </div>
+
+
+                        <div class="reasoning-item">
+
+                            <span>
+                                02
+                            </span>
+
+                            <p>
+                                Missing age values use the median to
+                                avoid introducing an artificial extreme.
+                            </p>
+
+                        </div>
+
+
+                        <div class="reasoning-item">
+
+                            <span>
+                                03
+                            </span>
+
+                            <p>
+                                Email values are normalized to create
+                                consistent textual representation.
+                            </p>
+
+                        </div>
+
+
+                        <div class="reasoning-item">
+
+                            <span>
+                                04
+                            </span>
+
+                            <p>
+                                Negative purchase amounts are treated
+                                as invalid records.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAFETY -->
+
+                <div class="card coder-safety-card">
+
+                    <div class="coder-section-heading">
+
+                        <div class="coder-small-icon security-icon">
+                            🔐
+                        </div>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                PRE-EXECUTION CHECK
+                            </p>
+
+                            <h3>
+                                Safety Review
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="safety-check-list">
+
+                        <div class="safety-check">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    No external network calls
+                                </strong>
+
+                                <p>
+                                    Script operates only on the dataset.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="safety-check">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    No sensitive output
+                                </strong>
+
+                                <p>
+                                    Output is limited to transformed data.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="safety-check">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Sandbox compatible
+                                </strong>
+
+                                <p>
+                                    Transformation can execute in isolation.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="safety-check">
+
+                            <span>
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Critic review required
+                                </strong>
+
+                                <p>
+                                    Code must pass adversarial review.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 NEXT AGENT
+            ========================== -->
+
+            <section class="coder-next-agent">
+
+                <div class="next-agent-left">
+
+                    <div class="next-agent-icon">
+                        ⚔
+                    </div>
+
+                    <div>
+
+                        <p class="eyebrow">
+                            NEXT AGENT
+                        </p>
+
+                        <strong>
+                            Critic Agent
+                        </strong>
+
+                        <p>
+                            The generated code will now be challenged
+                            for hidden risks and incorrect assumptions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="next-agent-right">
+
+                    <span class="revision-indicator">
+                        Self-critique enabled
+                    </span>
+
+                    <a
+                        href="critic.html"
+                        class="button primary"
+                    >
+                        Send to Critic →
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
