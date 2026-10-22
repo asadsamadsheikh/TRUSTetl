@@ -50,173 +50,127 @@
 
 
         <!-- Navigation Links -->
-        <div class="nav-links">
+        <nav class="nav-links">
 
             <a href="index.html">
                 Home
-            </a>
-
-            <a href="dashboard.html">
-                Dashboard
             </a>
 
             <a href="about.html">
                 About
             </a>
 
-        </div>
 
+            <!-- =========================
+                 PROFILE
+            ========================== -->
+            <div class="profile-container">
 
-        <!-- =========================
-             PROFILE
-        ========================== -->
-        <div class="profile-container">
-
-            <button
-                class="profile-button"
-                id="profileButton"
-                type="button"
-            >
-
-                <img
-                    id="profileImage"
-                    class="profile-image"
-                    src=""
-                    alt="Profile"
-                    style="display: none;"
-                >
-
-                <span
-                    id="profileInitial"
-                    class="profile-initial"
+                <button
+                    class="profile-button"
+                    id="profileButton"
+                    aria-label="Open profile"
+                    type="button"
                 >
                     M
-                </span>
-
-            </button>
+                </button>
 
 
-            <!-- Profile Dropdown -->
-            <div
-                class="profile-menu"
-                id="profileMenu"
-            >
+                <!-- Profile Dropdown -->
+                <div
+                    class="profile-menu"
+                    id="profileMenu"
+                >
 
-                <!-- Profile Header -->
-                <div class="profile-header">
+                    <!-- Profile Header -->
+                    <div class="profile-header">
 
-                    <div class="profile-large">
-
-                        <img
-                            id="profileMenuImage"
-                            class="profile-image"
-                            src=""
-                            alt="Profile"
-                            style="display: none;"
+                        <div
+                            class="profile-large"
+                            id="profileLarge"
                         >
-
-                        <span id="profileMenuInitial">
                             M
-                        </span>
+                        </div>
+
+
+                        <div class="profile-details">
+
+                            <h3 id="profileName">
+                                Manav
+                            </h3>
+
+                            <p id="profileEmail">
+                                user@trustetl.com
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="profile-details">
+                    <div class="menu-divider"></div>
 
-                        <strong id="profileName">
-                            Manav
-                        </strong>
 
-                        <span id="profileEmail">
-                            manav@trustetl.demo
-                        </span>
+                    <!-- Change Profile -->
+                    <button
+                        class="profile-item"
+                        id="changeProfile"
+                        type="button"
+                    >
+                        <span class="item-icon">👤</span>
+                        <span>Change profile</span>
+                    </button>
 
-                    </div>
+
+                    <!-- Account Settings -->
+                    <button
+                        class="profile-item"
+                        id="accountSettings"
+                        type="button"
+                    >
+                        <span class="item-icon">⚙</span>
+                        <span>Account settings</span>
+                    </button>
+
+
+                    <!-- Help & Support -->
+                    <button
+                        class="profile-item"
+                        id="helpSupport"
+                        type="button"
+                    >
+                        <span class="item-icon">?</span>
+                        <span>Help &amp; support</span>
+                    </button>
+
+
+                    <div class="menu-divider"></div>
+
+
+                    <!-- Logout -->
+                    <button
+                        class="profile-item logout"
+                        id="logoutButton"
+                        type="button"
+                    >
+                        <span class="item-icon">↪</span>
+                        <span>Logout</span>
+                    </button>
 
                 </div>
 
 
-                <div class="menu-divider"></div>
-
-
-                <!-- Change Profile -->
-                <button
-                    class="profile-item"
-                    id="changeProfile"
-                    type="button"
+                <!-- Profile Image Input -->
+                <input
+                    type="file"
+                    id="profileImageInput"
+                    accept="image/png,image/jpeg,image/jpg,image/webp"
+                    hidden
                 >
-
-                    <span class="item-icon">
-                        👤
-                    </span>
-
-                    <span>
-                        Change profile
-                    </span>
-
-                </button>
-
-
-                <!-- Account Settings -->
-                <button
-                    class="profile-item"
-                    id="accountSettings"
-                    type="button"
-                >
-
-                    <span class="item-icon">
-                        ⚙️
-                    </span>
-
-                    <span>
-                        Account settings
-                    </span>
-
-                </button>
-
-
-                <!-- Help & Support -->
-                <button
-                    class="profile-item"
-                    id="helpSupport"
-                    type="button"
-                >
-
-                    <span class="item-icon">
-                        ❓
-                    </span>
-
-                    <span>
-                        Help &amp; support
-                    </span>
-
-                </button>
-
-
-                <div class="menu-divider"></div>
-
-
-                <!-- Logout -->
-                <button
-                    class="profile-item logout"
-                    id="logoutButton"
-                    type="button"
-                >
-
-                    <span class="item-icon">
-                        ↪
-                    </span>
-
-                    <span>
-                        Logout
-                    </span>
-
-                </button>
 
             </div>
 
-        </div>
+        </nav>
 
     </nav>
 
