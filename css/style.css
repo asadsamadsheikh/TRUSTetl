@@ -15,10 +15,21 @@
         --surface: #0d131d;
         --surface-light: #111a26;
         --border: #1d2938;
-        --text: #f3f7fb;
+
+        /* 1. The Clinical Scrub: Antiseptic Teal (Cleaning & Primary Accent) */
+        --accent: #008080;
+        --accent-hover: #009e9e;
+        --accent-dark: #005959;
+        --clinical-scrub: #008080;
+
+        /* 2. The Blank Slate: Sterile Gray-White (Clean Data & High Contrast Text) */
+        --text: #F5F5F7;
+        --blank-slate: #F5F5F7;
         --muted: #8c99a8;
-        --accent: #19e68c;
-        --accent-dark: #0d9f61;
+
+        /* 3. The Raw Chaos: Muddy Charcoal (Pre-cleaned Data & Surface Accents) */
+        --raw-chaos: #3C3F41;
+
         --danger: #ff5f67;
         --warning: #f5bd4f;
     }
@@ -43,7 +54,7 @@
     /* ---------- Navigation ---------- */
     .navbar {
         min-height: 72px;
-        padding: 0 5%;
+        padding: 0 5% 0 76px;
         border-bottom: 1px solid var(--border);
         display: flex;
         align-items: center;
@@ -51,7 +62,7 @@
         background: rgba(7, 11, 18, 0.96);
         position: sticky;
         top: 0;
-        z-index: 10;
+        z-index: 100;
     }
 
     .brand {
@@ -81,11 +92,16 @@
     }
 
     .nav-links .nav-button {
-        color: #03130c;
+        color: #ffffff;
         background: var(--accent);
         padding: 10px 16px;
         border-radius: 8px;
         font-weight: 700;
+        transition: 0.2s ease;
+    }
+
+    .nav-links .nav-button:hover {
+        background: var(--accent-hover);
     }
 
     /* ---------- General layout ---------- */
@@ -156,8 +172,13 @@
 
     .button.primary {
         background: var(--accent);
-        color: #03130c;
+        color: #ffffff;
         border-color: var(--accent);
+    }
+
+    .button.primary:hover {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
     }
 
     .button.secondary {
@@ -291,48 +312,22 @@
         color: var(--muted);
     }
 
-    /* ---------- Dashboard ---------- */
+    /* ---------- Dashboard (Permanent sidebar removed from visible UI) ---------- */
     .dashboard-layout {
-        display: grid;
-        grid-template-columns: 230px 1fr;
+        display: block !important;
         min-height: calc(100vh - 72px);
+        width: 100%;
     }
 
-    .sidebar {
-        padding: 30px 18px;
-        border-right: 1px solid var(--border);
-        background: #090e16;
-    }
-
-    .sidebar-label {
-        color: #5f6b79;
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 1.5px;
-        margin: 20px 10px 8px;
-    }
-
-    .sidebar-link {
-        display: block;
-        padding: 10px 12px;
-        color: var(--muted);
-        border-radius: 7px;
-        font-size: 14px;
-    }
-
-    .sidebar-link:hover,
-    .sidebar-link.active {
-        color: var(--text);
-        background: var(--surface-light);
-    }
-
-    .sidebar-link.active {
-        box-shadow: inset 2px 0 var(--accent);
+    .dashboard-layout > .sidebar,
+    aside.sidebar:not(.trustetl-drawer) {
+        display: none !important;
     }
 
     .dashboard-content {
-        width: min(1200px, 100%);
-        padding: 40px;
+        width: min(1200px, 92%);
+        margin: 0 auto;
+        padding: 40px 20px;
     }
 
     .page-title {
@@ -378,8 +373,8 @@
     }
 
     .badge.success {
-        background: rgba(25, 230, 140, 0.12);
-        color: var(--accent);
+        background: rgba(0, 128, 128, 0.16);
+        color: #00b3b3;
     }
 
     .badge.warning {
@@ -490,7 +485,7 @@
     .drop-zone.dragging,
     .drop-zone:hover {
         border-color: var(--accent);
-        background: rgba(25, 230, 140, 0.03);
+        background: rgba(0, 128, 128, 0.06);
     }
 
     .upload-icon {
@@ -635,7 +630,7 @@
 
     .lineage-item.final .lineage-number {
         border-color: var(--accent);
-        background: rgba(25, 230, 140, 0.08);
+        background: rgba(0, 128, 128, 0.15);
     }
 
     .lineage-arrow {
@@ -882,7 +877,7 @@
         width: 46px;
         height: 46px;
         flex: 0 0 46px;
-        background: rgba(25, 230, 140, 0.12);
+        background: rgba(0, 128, 128, 0.18);
         color: var(--accent);
     }
 
@@ -997,8 +992,13 @@
 
     .primary-button {
         background: var(--accent);
-        color: #03130c;
+        color: #ffffff;
         border-color: var(--accent);
+    }
+
+    .primary-button:hover {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
     }
 
     .secondary-button {
@@ -1150,7 +1150,8 @@
         align-items: center;
         justify-content: center;
         border-radius: 10px;
-        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        background: linear-gradient(135deg, #008080, #009e9e);
+        box-shadow: 0 4px 14px rgba(0, 128, 128, 0.35);
     }
 
     .brand-logo span {
@@ -1166,7 +1167,7 @@
     }
 
     .brand-name span {
-        color: #818cf8;
+        color: var(--accent);
     }
 
     /* =========================================================
@@ -1196,7 +1197,7 @@
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: #818cf8;
+    color: var(--accent);
 }
 
 .pipeline-progress-text {
@@ -1224,7 +1225,7 @@
 .pipeline-progress-bar {
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    background: linear-gradient(90deg, #008080, #00b3b3);
     border-radius: inherit;
     animation: pipelineProgress 1.8s ease-out;
 }
@@ -5741,7 +5742,7 @@ body::after {
     width: 450px;
     height: 450px;
 
-    background: #6366f1;
+    background: #008080;
 
     left: -200px;
     top: 10%;
@@ -5753,7 +5754,7 @@ body::after {
     width: 400px;
     height: 400px;
 
-    background: #06b6d4;
+    background: #005959;
 
     right: -180px;
     bottom: 5%;
@@ -6154,6 +6155,325 @@ body::after {
     .bg-orb,
     .data-particle {
         animation: none !important;
+    }
+}
+
+
+/* =========================================================
+   TRUSTETL - HAMBURGER MENU & COLLAPSIBLE DRAWER
+   Color Palette:
+   - Antiseptic Teal: #008080 (Primary Accent & Active Highlights)
+   - Sterile Gray-White: #F5F5F7 (Text & Active state contrast)
+   - Muddy Charcoal: #3C3F41 (Drawer Sidebar & Button background)
+   ========================================================= */
+
+/* Fixed Hamburger Toggle Button in top-left */
+.trustetl-menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 9px;
+    background: #3C3F41;
+    border: 1px solid rgba(0, 128, 128, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1200;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+}
+
+.trustetl-menu-toggle:hover {
+    background: #464a4d;
+    border-color: #008080;
+    box-shadow: 0 0 16px rgba(0, 128, 128, 0.45);
+    transform: scale(1.04);
+}
+
+.trustetl-menu-toggle:focus-visible {
+    outline: 2px solid #008080;
+    outline-offset: 2px;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #F5F5F7;
+    border-radius: 2px;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.2s ease,
+                background 0.2s ease;
+    transform-origin: center;
+}
+
+.trustetl-menu-toggle:hover .hamburger-bar {
+    background: #008080;
+}
+
+/* Morph hamburger to close 'X' when drawer is open */
+.trustetl-menu-toggle.menu-open {
+    background: #3C3F41;
+    border-color: #008080;
+    box-shadow: 0 0 14px rgba(0, 128, 128, 0.35);
+}
+
+.trustetl-menu-toggle.menu-open .hamburger-bar {
+    background: #F5F5F7;
+}
+
+.trustetl-menu-toggle.menu-open .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.trustetl-menu-toggle.menu-open .hamburger-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.trustetl-menu-toggle.menu-open .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Semi-transparent Overlay */
+.trustetl-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 11, 18, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1050;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trustetl-overlay.active,
+body.drawer-open .trustetl-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Slide-in Navigation Drawer */
+.trustetl-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 285px;
+    max-width: 86vw;
+    background: #3C3F41;
+    border-right: 1px solid rgba(0, 128, 128, 0.35);
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.65);
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.trustetl-drawer.open,
+body.drawer-open .trustetl-drawer {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* Drawer Header */
+.drawer-header {
+    height: 72px;
+    padding: 0 16px 0 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(245, 245, 247, 0.1);
+    background: rgba(45, 48, 50, 0.95);
+    flex-shrink: 0;
+}
+
+.drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.drawer-brand-logo {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #008080, #009e9e);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    box-shadow: 0 2px 8px rgba(0, 128, 128, 0.4);
+}
+
+.drawer-brand-name {
+    color: #F5F5F7;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.drawer-brand-name span {
+    color: #008080;
+}
+
+.drawer-close-btn {
+    background: transparent;
+    border: none;
+    color: #F5F5F7;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.drawer-close-btn:hover {
+    color: #008080;
+    background: rgba(0, 128, 128, 0.15);
+    transform: rotate(90deg);
+}
+
+/* Drawer Scrollable Body */
+.drawer-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 14px 30px;
+}
+
+.drawer-section {
+    margin-bottom: 18px;
+}
+
+.drawer-section-title {
+    color: #008080;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 12px 6px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.drawer-section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(0, 128, 128, 0.25);
+    margin-left: 10px;
+}
+
+.drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    color: #F5F5F7;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-bottom: 3px;
+    border: 1px solid transparent;
+}
+
+.drawer-link-icon {
+    font-size: 15px;
+    width: 20px;
+    text-align: center;
+    opacity: 0.85;
+}
+
+.drawer-link:hover {
+    background: rgba(0, 128, 128, 0.18);
+    color: #ffffff;
+    border-color: rgba(0, 128, 128, 0.35);
+    transform: translateX(4px);
+}
+
+.drawer-link:hover .drawer-link-icon {
+    opacity: 1;
+}
+
+.drawer-link.active {
+    background: #008080 !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0, 128, 128, 0.45);
+    border-color: #009e9e;
+}
+
+.drawer-link.active .drawer-link-icon {
+    opacity: 1;
+}
+
+/* Custom Scrollbar for Drawer */
+.drawer-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.drawer-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.drawer-nav::-webkit-scrollbar-thumb {
+    background: rgba(245, 245, 247, 0.15);
+    border-radius: 3px;
+}
+
+.drawer-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 128, 128, 0.5);
+}
+
+/* Prevent body scroll when drawer open */
+body.drawer-open {
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding-left: 64px !important;
+    }
+
+    .trustetl-menu-toggle {
+        top: 14px;
+        left: 12px;
+        width: 38px;
+        height: 38px;
+        gap: 4px;
+    }
+
+    .hamburger-bar {
+        width: 18px;
+    }
+
+    .trustetl-menu-toggle.menu-open .hamburger-bar:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .trustetl-menu-toggle.menu-open .hamburger-bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .drawer-header {
+        padding: 0 14px 0 60px;
     }
 }
 

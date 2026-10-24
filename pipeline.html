@@ -60,10 +60,6 @@
                 Home
             </a>
 
-            <a href="dashboard.html">
-                Dashboard
-            </a>
-
             <a href="about.html">
                 About
             </a>
@@ -81,24 +77,10 @@
                 <button
                     class="profile-button"
                     id="profileButton"
+                    aria-label="Open profile"
                     type="button"
                 >
-
-                    <img
-                        id="profileImage"
-                        class="profile-image"
-                        src=""
-                        alt="Profile"
-                        style="display: none;"
-                    >
-
-                    <span
-                        id="profileInitial"
-                        class="profile-initial"
-                    >
-                        M
-                    </span>
-
+                    M
                 </button>
 
 
@@ -114,31 +96,19 @@
                             class="profile-large"
                             id="profileLarge"
                         >
-
-                            <img
-                                id="profileMenuImage"
-                                class="profile-image"
-                                src=""
-                                alt="Profile"
-                                style="display: none;"
-                            >
-
-                            <span id="profileMenuInitial">
-                                M
-                            </span>
-
+                            M
                         </div>
 
 
                         <div class="profile-details">
 
-                            <strong id="profileName">
+                            <h3 id="profileName">
                                 Manav
-                            </strong>
+                            </h3>
 
-                            <span id="profileEmail">
-                                manav@trustetl.demo
-                            </span>
+                            <p id="profileEmail">
+                                user@trustetl.com
+                            </p>
 
                         </div>
 
@@ -163,7 +133,7 @@
                         id="accountSettings"
                         type="button"
                     >
-                        <span class="item-icon">⚙️</span>
+                        <span class="item-icon">⚙</span>
                         <span>Account settings</span>
                     </button>
 
@@ -173,7 +143,7 @@
                         id="helpSupport"
                         type="button"
                     >
-                        <span class="item-icon">❓</span>
+                        <span class="item-icon">?</span>
                         <span>Help &amp; support</span>
                     </button>
 
@@ -197,7 +167,7 @@
                 <input
                     type="file"
                     id="profileImageInput"
-                    accept="image/*"
+                    accept="image/png,image/jpeg,image/jpg,image/webp"
                     hidden
                 >
 
