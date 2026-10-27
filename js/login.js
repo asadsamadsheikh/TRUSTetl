@@ -338,15 +338,8 @@ const createAccount =
     document.getElementById("createAccount");
 
 if (createAccount) {
-
     createAccount.addEventListener("click", function (event) {
-
         event.preventDefault();
-
-        alert(
-            "Account registration will be added later."
-        );
-
+        window.location.href = "Register.html";
     });
-
 }

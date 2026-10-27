@@ -1,39 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Backend configuration -->
+    <!--
+        Backend base URL.
+        Leave empty when this page is served by the FastAPI app (same origin),
+        e.g. http://localhost:8000/Register.html
+        If the page is opened as a file:// URL it falls back to http://localhost:8000.
+        To use a different backend, set e.g. content="http://localhost:8000".
+    -->
     <meta name="trustetl-api-base" content="">
 
     <title>TrustETL | Create Account</title>
 
-    <!-- Existing stylesheets -->
+    <!-- Existing login styles are reused as-is; register.css only adds to them. -->
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/register.css">
 
-    <!-- Registration card width adjustment -->
-    <style>
-        /* Make only the registration card wider */
-        .login-page .login-card.register-card {
-            width: calc(100% - 32px);
-            max-width: 540px;
-            box-sizing: border-box;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Keep the card responsive on mobile */
-        @media (max-width: 580px) {
-            .login-page .login-card.register-card {
-                width: calc(100% - 24px);
-                max-width: 540px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -54,45 +41,35 @@
                 <small>RAW DATA</small>
             </div>
 
-            <div class="etl-line line-1">
-                <i></i><i></i><i></i>
-            </div>
+            <div class="etl-line line-1"><i></i><i></i><i></i></div>
 
             <div class="etl-node node-profile">
                 <span>◉</span>
                 <small>PROFILER</small>
             </div>
 
-            <div class="etl-line line-2">
-                <i></i><i></i><i></i>
-            </div>
+            <div class="etl-line line-2"><i></i><i></i><i></i></div>
 
             <div class="etl-node node-coder">
                 <span>⌘</span>
                 <small>CODER AI</small>
             </div>
 
-            <div class="etl-line line-3">
-                <i></i><i></i><i></i>
-            </div>
+            <div class="etl-line line-3"><i></i><i></i><i></i></div>
 
             <div class="etl-node node-critic">
                 <span>⚡</span>
                 <small>CRITIC AI</small>
             </div>
 
-            <div class="etl-line line-4">
-                <i></i><i></i><i></i>
-            </div>
+            <div class="etl-line line-4"><i></i><i></i><i></i></div>
 
             <div class="etl-node node-validator">
                 <span>✓</span>
                 <small>VALIDATOR</small>
             </div>
 
-            <div class="etl-line line-5">
-                <i></i><i></i><i></i>
-            </div>
+            <div class="etl-line line-5"><i></i><i></i><i></i></div>
 
             <div class="etl-node node-clean">
                 <span>✓</span>
@@ -108,11 +85,10 @@
         <div class="background-glow glow-one"></div>
         <div class="background-glow glow-two"></div>
 
+
         <!-- Registration Card -->
-        <section
-            class="login-card register-card"
-            aria-labelledby="registerTitle"
-        >
+
+        <section class="login-card register-card" aria-labelledby="registerTitle">
 
             <div class="login-brand">
                 Trust<span>ETL</span>
@@ -120,17 +96,18 @@
 
             <div class="login-heading">
                 <h1 id="registerTitle">Create your account</h1>
-                <p>
-                    Start building trusted, self-validated ETL pipelines.
-                </p>
+                <p>Start building trusted, self-validated ETL pipelines.</p>
             </div>
 
-            <!-- Registration form -->
+
+            <!-- Registration form + login link (hidden after success) -->
+
             <div id="registerFormArea">
 
                 <form id="registerForm" novalidate>
 
                     <!-- FULL NAME -->
+
                     <div class="form-group">
 
                         <label for="fullName">Full name</label>
@@ -147,15 +124,13 @@
                             required
                         >
 
-                        <small
-                            class="input-error"
-                            id="fullNameError"
-                            role="alert"
-                        ></small>
+                        <small class="input-error" id="fullNameError" role="alert"></small>
 
                     </div>
 
+
                     <!-- EMAIL -->
+
                     <div class="form-group">
 
                         <label for="email">Email address</label>
@@ -171,15 +146,13 @@
                             required
                         >
 
-                        <small
-                            class="input-error"
-                            id="emailError"
-                            role="alert"
-                        ></small>
+                        <small class="input-error" id="emailError" role="alert"></small>
 
                     </div>
 
+
                     <!-- PASSWORD -->
+
                     <div class="form-group">
 
                         <label for="password">Password</label>
@@ -210,43 +183,25 @@
                         </div>
 
                         <!-- Password strength indicator -->
-                        <div
-                            class="strength"
-                            id="passwordStrength"
-                            data-level="0"
-                        >
-
+                        <div class="strength" id="passwordStrength" data-level="0">
                             <div class="strength-bars" aria-hidden="true">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                                <span></span><span></span><span></span><span></span>
                             </div>
-
-                            <span
-                                class="strength-text"
-                                id="passwordStrengthText"
-                                aria-live="polite"
-                            >
+                            <span class="strength-text" id="passwordStrengthText" aria-live="polite">
                                 Password strength: —
                             </span>
-
                         </div>
 
-                        <small
-                            class="input-error"
-                            id="passwordError"
-                            role="alert"
-                        ></small>
+                        <small class="input-error" id="passwordError" role="alert"></small>
 
                     </div>
 
+
                     <!-- CONFIRM PASSWORD -->
+
                     <div class="form-group">
 
-                        <label for="confirmPassword">
-                            Confirm password
-                        </label>
+                        <label for="confirmPassword">Confirm password</label>
 
                         <div class="password-wrapper">
 
@@ -272,21 +227,16 @@
 
                         </div>
 
-                        <small
-                            class="input-error"
-                            id="confirmPasswordError"
-                            role="alert"
-                        ></small>
+                        <small class="input-error" id="confirmPasswordError" role="alert"></small>
 
                     </div>
 
-                    <!-- TERMS AND CONDITIONS -->
+
+                    <!-- TERMS -->
+
                     <div class="form-group terms-group">
 
-                        <label
-                            class="remember-me terms-label"
-                            for="terms"
-                        >
+                        <label class="remember-me terms-label" for="terms">
 
                             <input
                                 type="checkbox"
@@ -296,21 +246,17 @@
                                 required
                             >
 
-                            <span>
-                                I agree to the Terms and Conditions
-                            </span>
+                            <span>I agree to the Terms and Conditions</span>
 
                         </label>
 
-                        <small
-                            class="input-error"
-                            id="termsError"
-                            role="alert"
-                        ></small>
+                        <small class="input-error" id="termsError" role="alert"></small>
 
                     </div>
 
-                    <!-- GENERAL STATUS MESSAGE -->
+
+                    <!-- GENERAL MESSAGE -->
+
                     <div
                         class="form-message"
                         id="formMessage"
@@ -318,20 +264,16 @@
                         aria-live="polite"
                     ></div>
 
-                    <!-- CREATE ACCOUNT BUTTON -->
-                    <button
-                        type="submit"
-                        class="login-button"
-                        id="registerButton"
-                    >
-                        <span id="registerButtonText">
-                            Create Account
-                        </span>
+
+                    <!-- SUBMIT -->
+
+                    <button type="submit" class="login-button" id="registerButton">
+                        <span id="registerButtonText">Create Account</span>
                     </button>
 
                 </form>
 
-                <!-- LOGIN LINK -->
+
                 <p class="signup-text">
                     Already have an account?
                     <a href="Login.html">Log in</a>
@@ -339,45 +281,33 @@
 
             </div>
 
-            <!-- SUCCESS PANEL -->
-            <div
-                class="register-success"
-                id="successPanel"
-                hidden
-            >
 
-                <div class="success-icon" aria-hidden="true">
-                    ✓
-                </div>
+            <!-- Success panel (shown only after the backend confirms creation) -->
 
-                <h2 id="successTitle" tabindex="-1">
-                    Account created
-                </h2>
+            <div class="register-success" id="successPanel" hidden>
+
+                <div class="success-icon" aria-hidden="true">✓</div>
+
+                <h2 id="successTitle" tabindex="-1">Account created</h2>
 
                 <p>
                     Your TrustETL account has been created successfully.
                     You can now log in with your email and password.
                 </p>
 
-                <a
-                    class="register-success-link"
-                    href="Login.html"
-                >
-                    Go to login
-                </a>
+                <a class="register-success-link" href="Login.html">Go to login</a>
 
             </div>
 
         </section>
 
-        <!-- FOOTER -->
+
         <p class="login-footer">
             TrustETL — Autonomous ETL with Adversarial Self-Critique
         </p>
 
     </main>
 
-    <!-- Existing registration JavaScript -->
     <script src="js/register.js"></script>
 
 </body>
