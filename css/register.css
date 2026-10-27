@@ -1,0 +1,385 @@
+/* =========================================
+   TRUSTETL REGISTER PAGE
+   Additions on top of css/login.css (loaded first).
+   Uses the same CSS variables, card, inputs and background.
+   ========================================= */
+
+
+/* The registration card is taller than the login card:
+   let the page scroll instead of clipping on short screens. */
+
+.register-page {
+
+    justify-content: flex-start;
+
+    padding-top: 48px;
+
+    padding-bottom: 48px;
+
+}
+
+.register-card {
+
+    margin-top: auto;
+
+}
+
+.register-page .login-footer {
+
+    margin-bottom: auto;
+
+}
+
+
+/* Compact vertical rhythm for the longer form */
+
+.register-card .login-heading {
+
+    margin-bottom: 24px;
+
+}
+
+
+/* =========================================
+   FOCUS (keyboard users)
+   ========================================= */
+
+.register-card a:focus-visible,
+.register-card button:focus-visible,
+.register-card input[type="checkbox"]:focus-visible {
+
+    outline: 2px solid var(--accent);
+
+    outline-offset: 3px;
+
+    border-radius: 6px;
+
+}
+
+.register-card .form-group input:focus-visible {
+
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px rgba(25, 230, 154, 0.22);
+
+}
+
+
+/* =========================================
+   PASSWORD STRENGTH
+   ========================================= */
+
+.strength {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+}
+
+.strength-bars {
+
+    display: flex;
+
+    flex: 1;
+
+    gap: 5px;
+
+}
+
+.strength-bars span {
+
+    flex: 1;
+
+    height: 4px;
+
+    border-radius: 3px;
+
+    background: var(--border);
+
+    transition: background 0.25s ease;
+
+}
+
+.strength-text {
+
+    min-width: 112px;
+
+    font-size: 12px;
+
+    color: var(--muted);
+
+    text-align: right;
+
+}
+
+.strength[data-level="1"] .strength-bars span:nth-child(-n+1) {
+
+    background: var(--danger);
+
+}
+
+.strength[data-level="2"] .strength-bars span:nth-child(-n+2) {
+
+    background: #ffb454;
+
+}
+
+.strength[data-level="3"] .strength-bars span:nth-child(-n+3) {
+
+    background: #9be564;
+
+}
+
+.strength[data-level="4"] .strength-bars span:nth-child(-n+4) {
+
+    background: var(--accent);
+
+}
+
+
+/* =========================================
+   TERMS CHECKBOX
+   ========================================= */
+
+.terms-group {
+
+    margin-bottom: 4px;
+
+}
+
+.form-group .terms-label {
+
+    align-items: flex-start;
+
+    margin-bottom: 0;
+
+    font-weight: 400;
+
+    line-height: 1.5;
+
+}
+
+.terms-label input {
+
+    flex-shrink: 0;
+
+    margin-top: 2px;
+
+}
+
+.terms-group .input-error {
+
+    min-height: 17px;
+
+}
+
+
+/* =========================================
+   MESSAGES
+   ========================================= */
+
+.register-card .form-message a {
+
+    color: var(--accent);
+
+    font-weight: 600;
+
+}
+
+.register-card .form-message a:hover {
+
+    color: var(--accent-hover);
+
+}
+
+.register-card .form-message {
+
+    line-height: 1.5;
+
+}
+
+
+/* Loading state for the primary button */
+
+.login-button.loading::after {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 14px;
+
+    height: 14px;
+
+    margin-left: 10px;
+
+    vertical-align: -2px;
+
+    border: 2px solid rgba(3, 17, 11, 0.35);
+
+    border-top-color: #03110b;
+
+    border-radius: 50%;
+
+    animation: registerSpin 0.7s linear infinite;
+
+}
+
+@keyframes registerSpin {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================
+   SUCCESS PANEL
+   ========================================= */
+
+.register-success {
+
+    text-align: center;
+
+    padding: 8px 0 4px;
+
+}
+
+.register-success[hidden] {
+
+    display: none;
+
+}
+
+.success-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(25, 230, 154, 0.5);
+
+    background: rgba(25, 230, 154, 0.1);
+
+    color: var(--accent);
+
+    font-size: 28px;
+
+}
+
+.register-success h2 {
+
+    margin-bottom: 10px;
+
+    font-size: 24px;
+
+    outline: none;
+
+}
+
+.register-success p {
+
+    margin-bottom: 26px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+.register-success-link {
+
+    display: block;
+
+    width: 100%;
+
+    height: 52px;
+
+    line-height: 52px;
+
+    border-radius: 9px;
+
+    background: var(--accent);
+
+    color: #03110b;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+
+}
+
+.register-success-link:hover {
+
+    background: var(--accent-hover);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 500px) {
+
+    .register-page {
+
+        padding-top: 25px;
+
+        padding-bottom: 25px;
+
+    }
+
+    .strength-text {
+
+        min-width: 96px;
+
+        font-size: 11px;
+
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .login-button.loading::after {
+
+        animation: none;
+
+    }
+
+    .strength-bars span {
+
+        transition: none;
+
+    }
+
+}

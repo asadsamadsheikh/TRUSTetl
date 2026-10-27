@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        Backend base URL.
+        Leave empty when this page is served by the FastAPI app (same origin),
+        e.g. http://localhost:8000/Register.html
+        If the page is opened as a file:// URL it falls back to http://localhost:8000.
+        To use a different backend, set e.g. content="http://localhost:8000".
+    -->
+    <meta name="trustetl-api-base" content="">
+
+    <title>TrustETL | Create Account</title>
+
+    <!-- Existing login styles are reused as-is; register.css only adds to them. -->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/register.css">
+
+</head>
+
+<body>
+
+    <main class="login-page register-page">
+
+        <div class="animated-grid"></div>
+
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <!-- Animated TrustETL Background -->
+        <div class="etl-animation" aria-hidden="true">
+
+            <div class="etl-node node-data">
+                <span>📄</span>
+                <small>RAW DATA</small>
+            </div>
+
+            <div class="etl-line line-1"><i></i><i></i><i></i></div>
+
+            <div class="etl-node node-profile">
+                <span>◉</span>
+                <small>PROFILER</small>
+            </div>
+
+            <div class="etl-line line-2"><i></i><i></i><i></i></div>
+
+            <div class="etl-node node-coder">
+                <span>⌘</span>
+                <small>CODER AI</small>
+            </div>
+
+            <div class="etl-line line-3"><i></i><i></i><i></i></div>
+
+            <div class="etl-node node-critic">
+                <span>⚡</span>
+                <small>CRITIC AI</small>
+            </div>
+
+            <div class="etl-line line-4"><i></i><i></i><i></i></div>
+
+            <div class="etl-node node-validator">
+                <span>✓</span>
+                <small>VALIDATOR</small>
+            </div>
+
+            <div class="etl-line line-5"><i></i><i></i><i></i></div>
+
+            <div class="etl-node node-clean">
+                <span>✓</span>
+                <small>CLEAN DATA</small>
+            </div>
+
+            <div class="revision-loop">
+                <span>↻ SELF-CRITIQUE</span>
+            </div>
+
+        </div>
+
+        <div class="background-glow glow-one"></div>
+        <div class="background-glow glow-two"></div>
+
+
+        <!-- Registration Card -->
+
+        <section class="login-card register-card" aria-labelledby="registerTitle">
+
+            <div class="login-brand">
+                Trust<span>ETL</span>
+            </div>
+
+            <div class="login-heading">
+                <h1 id="registerTitle">Create your account</h1>
+                <p>Start building trusted, self-validated ETL pipelines.</p>
+            </div>
+
+
+            <!-- Registration form + login link (hidden after success) -->
+
+            <div id="registerFormArea">
+
+                <form id="registerForm" novalidate>
+
+                    <!-- FULL NAME -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">Full name</label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="full_name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            minlength="2"
+                            maxlength="100"
+                            aria-describedby="fullNameError"
+                            required
+                        >
+
+                        <small class="input-error" id="fullNameError" role="alert"></small>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">Email address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            maxlength="100"
+                            aria-describedby="emailError"
+                            required
+                        >
+
+                        <small class="input-error" id="emailError" role="alert"></small>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">Password</label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="At least 8 characters"
+                                autocomplete="new-password"
+                                minlength="8"
+                                maxlength="64"
+                                aria-describedby="passwordStrengthText passwordError"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                id="togglePassword"
+                                aria-controls="password"
+                                aria-pressed="false"
+                                aria-label="Show password"
+                            >Show</button>
+
+                        </div>
+
+                        <!-- Password strength indicator -->
+                        <div class="strength" id="passwordStrength" data-level="0">
+                            <div class="strength-bars" aria-hidden="true">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="strength-text" id="passwordStrengthText" aria-live="polite">
+                                Password strength: —
+                            </span>
+                        </div>
+
+                        <small class="input-error" id="passwordError" role="alert"></small>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">Confirm password</label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirm_password"
+                                placeholder="Re-enter your password"
+                                autocomplete="new-password"
+                                maxlength="64"
+                                aria-describedby="confirmPasswordError"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                id="toggleConfirmPassword"
+                                aria-controls="confirmPassword"
+                                aria-pressed="false"
+                                aria-label="Show confirm password"
+                            >Show</button>
+
+                        </div>
+
+                        <small class="input-error" id="confirmPasswordError" role="alert"></small>
+
+                    </div>
+
+
+                    <!-- TERMS -->
+
+                    <div class="form-group terms-group">
+
+                        <label class="remember-me terms-label" for="terms">
+
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                name="terms"
+                                aria-describedby="termsError"
+                                required
+                            >
+
+                            <span>I agree to the Terms and Conditions</span>
+
+                        </label>
+
+                        <small class="input-error" id="termsError" role="alert"></small>
+
+                    </div>
+
+
+                    <!-- GENERAL MESSAGE -->
+
+                    <div
+                        class="form-message"
+                        id="formMessage"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+
+                    <!-- SUBMIT -->
+
+                    <button type="submit" class="login-button" id="registerButton">
+                        <span id="registerButtonText">Create Account</span>
+                    </button>
+
+                </form>
+
+
+                <p class="signup-text">
+                    Already have an account?
+                    <a href="Login.html">Log in</a>
+                </p>
+
+            </div>
+
+
+            <!-- Success panel (shown only after the backend confirms creation) -->
+
+            <div class="register-success" id="successPanel" hidden>
+
+                <div class="success-icon" aria-hidden="true">✓</div>
+
+                <h2 id="successTitle" tabindex="-1">Account created</h2>
+
+                <p>
+                    Your TrustETL account has been created successfully.
+                    You can now log in with your email and password.
+                </p>
+
+                <a class="register-success-link" href="Login.html">Go to login</a>
+
+            </div>
+
+        </section>
+
+
+        <p class="login-footer">
+            TrustETL — Autonomous ETL with Adversarial Self-Critique
+        </p>
+
+    </main>
+
+    <script src="js/register.js"></script>
+
+</body>
+
+</html>
